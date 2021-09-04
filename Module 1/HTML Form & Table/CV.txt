@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .mauchu {
+            color: red;
+        }
+
+        .header {
+            background-color: yellow;
+            height: 100px;
+            text-align: center;
+            padding-top: 20px
+        }
+
+        .left {
+            float: left; background-color: yellow ; width: 30%
+        }
+
+        .right h2{
+            padding-left: 50px;
+            color: yellow;
+        }
+        .right {
+            margin-left: 20px;
+            float: left;
+            background-color: brown; width: 66%
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="header">
+        <h1 > Trang CV cá nhân
+        </h1>
+    </div>
+    <div style="height: 500px">
+        <div class="left">
+            <img style="width: 100%" src="https://vnn-imgs-f.vgcloud.vn/2021/09/02/17/ronaldo.jpg">
+            <h2>Thông tin cá nhân</h2>
+            <p class="mauchu">Tên: Ronaldo</p>
+            <p>Ngày sinh: 1985</p>
+            <p class="mauchu">Quê Quán: Bồ</p>
+            <p><strong>Tên: Ronaldo</strong></p>
+            <p>Quê Quán: Bồ</p>
+            <p class="mauchu">Tên: Ronaldo</p>
+            <p>Ngày sinh: 1985</p>
+            <p>Quê Quán: Bồ</p>
+        </div>
+        <div class="right">
+            <h2>Kinh nghiệm làm việc</h2>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+            <p>Mu- 2004-2009</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

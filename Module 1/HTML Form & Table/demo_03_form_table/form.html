@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form name="formDangKy"
+          action="https://www.google.com/" method="get">
+        <fieldset>
+            <legend>Login Information</legend>
+            <label for="txtName">Name:</label>
+            <input type="text" placeholder="input name." id="txtName" name="userName" value="Hung"/>
+            <br/>
+            <label for="txtPass">Pass:</label>
+            <input type="password" id="txtPass" name="pass"/>
+            <br>
+        </fieldset>
+
+        <fieldset>
+            <legend>ABC Information</legend>
+            <input type="radio" name="gender">Male
+            <input type="radio" name="gender">Female
+            <input type="radio" name="gender">LGBT
+            </br>
+            <select>
+                <option>Vui lòng chọn</option>
+                <option>Hà Nội</option>
+                <option>Đà Nẵng</option>
+                <option>Hồ Chí Minh</option>
+            </select>
+            <br>
+            <input type="checkbox"> C#
+            <input type="checkbox"> Java
+            <input type="checkbox"> PHP
+            <br>
+            <textarea></textarea>
+            <br>
+
+            <input type="hidden" name="class" value="A0821I1">
+
+            <input type="submit" value="Submit">
+            <input type="reset" value="Clear">
+        </fieldset>
+    </form>
+
+
+    <table>
+        <tr>
+            <td>
+                <label for="txtName1">Name:</label>
+            </td>
+            <td>
+                <input type="text" placeholder="input name." id="txtName1" name="userName" value="Hung"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="txtPass1">Pass:</label>
+            </td>
+            <td>
+                <input type="password" id="txtPass1" name="pass"/>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
