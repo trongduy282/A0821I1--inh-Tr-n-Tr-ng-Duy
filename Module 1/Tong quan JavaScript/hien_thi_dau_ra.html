@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="thongbao();">Nut</button>
+<button onclick="alert('DUY')">Nut 1</button>
+<button id="nuthtml" onclick="thongbao2();">Nut 2</button>
+<button id="nuthtml2" onclick="thongbao3();">Nut 3</button>
+<button id="nutconsole" onclick="thongbao4();">Nut 4</button>
+<script>
+    function thongbao(){
+        alert("DUY");
+    }
+    function thongbao2(){
+        document.getElementById("nuthtml").innerText="DUY";
+    }
+    function thongbao3(){
+        document.write("Xinchao");
+    }
+    function thongbao4(){
+        console.log("DUY");
+    }
+</script>
+</body>
+</html>

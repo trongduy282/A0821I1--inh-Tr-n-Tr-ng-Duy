@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Caculator</h1>
+    <input type="text" id="so1">
+    <input type="text" id="so2">
+    <br>
+    <br>
+    <button id="cong" onclick="phepcong();">Addition(+)</button>
+    <button id="tru" onclick="pheptru();">Subtraction(-)</button>
+    <button id="nhan" onclick="phepnhan();">Multiplication(X)</button>
+    <button id="chia" onclick="phepchia();">Division(/)</button>
+    <h2 id="ketqua">Result</h2>
+<script>
+
+    function phepcong(){
+        let a= document.getElementById("so1").value
+        let soa= parseFloat(a)
+        let b= document.getElementById("so2").value
+        let sob= parseFloat(b)
+        let result
+        result=soa+sob
+        document.getElementById("ketqua").innerText=result
+        }
+    function pheptru(){
+        let a= document.getElementById("so1").value
+        let soa= parseFloat(a)
+        let b= document.getElementById("so2").value
+        let sob= parseFloat(b)
+        let result
+        result=soa-sob
+        document.getElementById("ketqua").innerText=result
+    }
+    function phepnhan(){
+        let a= document.getElementById("so1").value
+        let soa= parseFloat(a)
+        let b= document.getElementById("so2").value
+        let sob= parseFloat(b)
+        let result
+        result=soa*sob
+        document.getElementById("ketqua").innerText=result
+    }
+    function phepchia(){
+        let a= document.getElementById("so1").value
+        let soa= parseFloat(a)
+        let b= document.getElementById("so2").value
+        let sob= parseFloat(b)
+        let result
+        result=soa/sob
+        document.getElementById("ketqua").innerText=result
+    }
+</script>
+</body>
+</html>

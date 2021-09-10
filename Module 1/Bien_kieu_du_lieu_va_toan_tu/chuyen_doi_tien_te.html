@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Amount</h2>
+<input type="text" id="sotien">
+<h2>From</h2>
+<select id="from">
+    <option>VietNamDong</option>
+    <option>USDollar</option>
+</select>
+<h2>To</h2>
+<select id="to">
+    <option>VietNamDong</option>
+    <option>USDollar</option>
+</select>
+<br>
+<br>
+<button onclick="chuyendoi();">Convert</button>
+<h2 id="ketqua">Ket Qua</h2>
+<script>
+    function chuyendoi(){
+        let amount= document.getElementById("sotien").value
+        let tu= document.getElementById("from").value
+        let den= document.getElementById("to").value
+        let ketqua
+        if (tu==="VietNamDong" && den==="USDollar")
+        { ketqua= amount/23000}
+        else if (tu==="USDollar" && den==="VietNamDong")
+        { ketqua= amount*23000}
+        else {ketqua= amount}
+        document.getElementById('ketqua').innerText=ketqua
+    }
+
+</script>
+</body>
+</html>
