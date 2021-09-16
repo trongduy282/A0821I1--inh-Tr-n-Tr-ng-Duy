@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" width="200px" style=" color: blue; text-align: center; height: 300px">
+    <tr>
+        <td id="ketqua" style=" width: 20px; height: 30px" colspan="4"></td>
+    </tr>
+    <tr>
+        <td>
+            <button id="1" onclick="tinhtoan('1')">1</button>
+        </td>
+        <td>
+            <button id="2" onclick="tinhtoan('2')">2</button>
+        </td>
+        <td>
+            <button id="3" onclick="tinhtoan('3')">3</button>
+        </td>
+        <td>
+            <button id="+" onclick="tinhtoan('+')">+</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="4" onclick="tinhtoan('4')">4</button>
+        </td>
+        <td>
+            <button id="5" onclick="tinhtoan('5')">5</button>
+        </td>
+        <td>
+            <button id="6" onclick="tinhtoan('6')">6</button>
+        </td>
+        <td>
+            <button id="-" onclick="tinhtoan('-')">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="7" onclick="tinhtoan('7')">7</button>
+        </td>
+        <td>
+            <button id="8" onclick="tinhtoan('8')">8</button>
+        </td>
+        <td>
+            <button id="9" onclick="tinhtoan('9')">9</button>
+        </td>
+        <td>
+            <button id="*" onclick="tinhtoan('*')">X</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button id="C" onclick="tinhtoan('C')">C</button>
+        </td>
+        <td>
+            <button id="0" onclick="tinhtoan('0')">0</button>
+        </td>
+        <td>
+            <button id="=" onclick="tinhtoan('=')">=</button>
+        </td>
+        <td>
+            <button id="/" onclick="tinhtoan('/')">/</button>
+        </td>
+    </tr>
+</table>
+<script>
+    function tinhtoan(nhapvao) {
+        let ketqua = document.getElementById("ketqua").innerText;
+        console.log("ketqua: " + ketqua);
+        console.log(nhapvao);
+        switch (nhapvao) {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+            case '+':
+            case '-':
+                ketqua = ketqua + nhapvao;
+                break;
+            case '*':
+            case '/':
+                if (ketqua.length != 0) {
+                    ketqua = ketqua + nhapvao;
+                }
+                break;
+            case 'C':
+                ketqua = "";
+                break;
+            case '=':
+                ketqua = eval(ketqua);
+                break
+        }
+        document.getElementById("ketqua").innerText = ketqua;
+    }
+</script>
+</body>
+</html>
