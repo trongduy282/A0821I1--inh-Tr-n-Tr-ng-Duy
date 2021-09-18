@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="chonkhoang();" >Chơi</button>
+<script>
+    /*let count;
+    for(count=1;count<=100;count++){
+        console.log(count)
+        if(count===99){
+            document.write("hoan thanh")
+        }
+    }*/
+    /*let nhietdo = prompt("nhập nhiệt độ");
+    if(nhietdo>100){
+        document.write("giảm nhiệt độ")
+    }
+    else if(nhietdo<20){
+        document.write("tăng nhiệt độ")
+    }
+    else console.log("ko cần làm j")*/
+
+    /*let sofi = [];
+    let i;
+    sofi[0] = 0;
+    sofi[1] = 1;
+    let tong=0;
+    for (i = 2; i <= 21; i++) {
+        sofi[i]=sofi[i-1]+sofi[i-2]
+        tong=tong+ sofi[i]
+        document.write(" " + sofi[i]);
+    }
+    document.write("<br> Tong 20 so fi dau " + tong);
+    for (i = 2; i <= 21; i++) {
+        sofi[i]=sofi[i-1]+sofi[i-2];
+        if(sofi[i]%5===0){
+            document.write("<br> số fi đầu tiên chia hết cho 5 là " + sofi[i]);
+            break;
+        }
+    }
+*/
+    /*let count=0
+    let i=0;
+    let tong=0;
+    while(count<30){
+        let check = true;
+        if(i%7!==0){
+            check=false;
+        }
+        if (check===true){
+        console.log(i)
+            tong=tong+ i
+            count++
+        }
+        i++;
+    }
+    document.write("<br> Tong la " + tong);*/
+
+
+    /*for (let i = 1; i <= 100; i++) {
+        if (i % 3 === 0 && i % 5 !== 0) {
+            document.write("Fizz" + "<br>")
+        } else if (i % 5 === 0 && i % 3 !== 0) {
+            document.write("Buzz" + "<br>")
+        } else if (i % 3 === 0 && i % 5 === 0) {
+            document.write("FizzBuzz" + "<br>")
+        } else {
+            document.write(i + "<br>")
+        }
+    }*/
+function chonkhoang() {
+    let a = prompt("nhập số nhỏ nhất");
+    console.log(a);
+    let b = prompt("nhập số lớn nhất");
+    console.log(b);
+    let c = Math.floor(Math.random() * b + a)
+    console.log(c);
+}
+</script>
+</body>
+</html>
