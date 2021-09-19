@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let luong = prompt("nhap luong");
+    let thue;
+    let luongthucnhan;
+    if(luong<7000000){
+        thue=luong*5/100
+    }
+    else if(luong<15000000){
+        thue=luong*10/100
+    }
+    else thue=luong*20/100;
+    luongthucnhan=luong-thue;
+    document.write("thuế là" + thue);
+    document.write("<br>");
+    document.write("lương thực nhận là" + luongthucnhan);
+</script>
+</body>
+</html>

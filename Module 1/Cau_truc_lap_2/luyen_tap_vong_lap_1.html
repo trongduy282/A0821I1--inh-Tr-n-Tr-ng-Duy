@@ -72,12 +72,26 @@
         }
     }*/
 function chonkhoang() {
-    let a = prompt("nhập số nhỏ nhất");
+    let a = parseInt(prompt("nhập số nhỏ nhất"));
     console.log(a);
-    let b = prompt("nhập số lớn nhất");
+    let b = parseInt(prompt("nhập số lớn nhất"));
     console.log(b);
-    let c = Math.floor(Math.random() * b + a)
+    let c = Math.floor(Math.random() * (b - a) + a);
     console.log(c);
+    alert("so " + c);
+    let count = 0;
+    while (count < 3) {
+        let d = parseInt(prompt("điền số bạn đoán"));
+        let check = true
+        if (d !== c) {
+            alert('Sai rồi, Bạn còn ' + (3 - count) + ' lần chơi.');
+            count++;
+        } else if (d===c){
+            alert('Chúc mừng bạn đã thắng trò chơi này!!!');}
+        if (count>=3 && d !== c){
+            check = false;
+        }if(check=== true){alert('Số cần đoán là: ' + c + ' Bạn đã thua cuộc, chúc bạn may mắn lần sau.');}
+    }
 }
 </script>
 </body>

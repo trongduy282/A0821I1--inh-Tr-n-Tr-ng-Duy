@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*let sofi = [];
+   let i;
+   sofi[0] = 0;
+   sofi[1] = 1;
+   for (i = 2; i <= 21; i++) {
+       sofi[i]=sofi[i-1]+sofi[i-2]
+       document.write(sofi[i] + "<br> ");
+   }*/
+
+    /*let giaithua=1;
+    let x= parseInt(prompt("nhập số nguyên dương"));
+    let count=1;
+    while(count<=x){
+
+        giaithua = giaithua *count;
+        count++
+    }
+    document.write('giai thua cua ' + x + " la " + giaithua )*/
+
+    /*let bang;
+    bang = "<table>"
+    for(i=1; i<=1;i++){
+        bang= bang + "<tr>"
+        for(j=1; j<=1;j++){
+            bang= bang + "<td>" + "*" + "</td>"
+        }
+    }
+    bang = bang + "</table>";
+    document.write(bang);
+
+    let bang2;
+    bang2 = "<table>"
+    for(a=1; a<=1;a++){
+        bang2= bang2 + "<tr>"
+        for(b=1; b<=2;b++){
+            bang2= bang2 + "<td>" + "*" + "</td>"
+        }
+    }
+    bang2 = bang2 + "</table>";
+    document.write(bang2);
+
+    let bang3;
+    bang3 = "<table>"
+    for(a2=1; a2<=1;a2++){
+        bang3= bang3 + "<tr>"
+        for(b2=1; b2<=3;b2++){
+            bang3= bang3 + "<td>" + "*" + "</td>"
+        }
+    }
+    bang3 = bang3 + "</table>";
+    document.write(bang3);*/
+
+
+        /*//Hien thi dialog -> cho phep nhap gia tri cua N
+        var N = prompt('Nhap gia tri N')
+        //Chuyen kieu du lieu cua N tu string toi int
+        N = parseInt(N)
+        //xay dung do cao cua hinh tam giac
+        for(i=0;i<N;i++) {
+        //tao hang (row) *
+        for(j=0;j<=i;j++) {
+        document.writeln(" * ")
+    }
+
+        //xuong dong khi hien thi ket qua cua tung hang
+        document.writeln("<br/>")
+    }*/
+
+    /*let bang2 = "<table >"
+    for(i2=5;i2>=1;i2--){
+        bang2 = bang2 + "<tr>";
+        for(j2=5;j2>=i2;j2--){
+            bang2 = bang2 + "<td>" + "*" +"</td>"
+        }
+    }
+    bang2 = bang2 + "</table>"
+    document.write(bang2)
+
+    document.write("<br>")
+    let bang = "<table>"
+    for(i=1;i<=5;i++){
+        bang = bang + "<tr>";
+        for(j=5;j>=i;j--){
+            bang = bang + "<td>" + "*" +"</td>"
+        }
+    }
+    bang = bang + "</table>"
+    document.write(bang)
+
+    let bang3 = "<table dir='rtl'>"
+    for(i3=5;i3>=1;i3--){
+        bang3 = bang3 + "<tr>";
+        for(j3=5;j3>=i3;j3--){
+            bang3 = bang3 + "<td>" + "*" +"</td>"
+        }
+    }
+    bang3 = bang3 + "</table>"
+    document.write(bang3)
+
+    document.write("<br>")
+    let bang4 = "<table dir='rtl'>"
+    for(i4=1;i4<=5;i4++){
+        bang4 = bang4 + "<tr>";
+        for(j4=5;j4>=i4;j4--){
+            bang4 = bang4 + "<td>" + "*" +"</td>"
+        }
+    }
+    bang4 = bang4 + "</table>"
+    document.write(bang4)*/
+
+    /*for (i = 1; i <= 7; i++) {
+        for (j = 1; j <= 21; j++) {
+            if (i === 1 || i === 7 || j === 1 || j === 21) {
+                document.write("*")
+            } else {
+                document.write("&nbsp&nbsp")
+            }
+        }
+        document.write("<br>")
+    }*/
+
+    /*let tbd= prompt("tien ban dau");
+    let tcv= prompt("thang cho vay");
+    let lxht= prompt("lai xuat thang");
+let lainganhang;
+lainganhang=tbd x lxht x tcv.*/
+
+    for (i = 1; i <= 6; i++) {
+        for (j = 1; j <= 7; j++) {
+            if ((i ===1 && (j===2 || j===3 || j=== 5|| j===6))
+                || (i===2&& (j===1 || j===4 || j=== 7))
+                || (i===3&& (j===1 || j=== 7))
+                ||(i===4&& (j===2 || j=== 6))
+                ||(i===5&& (j===3 || j=== 5))
+                ||(i===6&& j===4)
+            ) {
+                document.write("*")
+            } else {
+                document.write("&nbsp&nbsp")
+            }
+        }
+        document.write("<br>")
+    }
+</script>
+</body>
+</html>
