@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="nhapvao">
+<input type="button" value="Add" onclick="themphantu()">
+<input type="button" value="Display" onclick="hienthi()">
+<p id="ketqua">Ket qua</p>
+<script>
+    let chuoi = Array(); //khai biến chuỗi
+    let i=0; //khai báo vị trí chuỗi
+    let a; //khai báo giá trị để người dùng nhập vào
+function themphantu(){
+    chuoi[i] = document.getElementById("nhapvao").value;
+    i++;
+    document.getElementById("nhapvao").value=""
+}
+    function hienthi(){
+    for(i=0;i<chuoi.length;i++){
+        document.write("vi tri = " + i + " gia trị là " + chuoi[i] + "<br>")
+    }
+    }
+</script>
+</body>
+</html>

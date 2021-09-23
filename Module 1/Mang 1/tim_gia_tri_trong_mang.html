@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = parseInt(prompt("nhap gia trị can tim"));
+  let mang = [1,6,9,12,24,46];
+  let i;
+  let check;
+  for(i=0;i<mang.length;i++){
+      if (mang[i]===a){
+          alert(mang[i] + " nam o vi tri " + i);
+          check= true; break;
+      }
+      else check= false;
+  }
+  if (check===false){
+      alert("mang ko có giá trị này");
+  }
+</script>
+</body>
+</html>
