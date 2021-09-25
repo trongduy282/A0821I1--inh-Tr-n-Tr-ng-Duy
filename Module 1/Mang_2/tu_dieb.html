@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = prompt("Nhập từ cần dịch");
+    let b = ["one","two","three","four","five"];
+    let c = ["một","hai","ba","bốn","năm"];
+    let check;
+    for(let i=0;i<b.length;i++){
+        if(a===b[i]){
+            alert("từ cần dịch là " + c[i]);
+            check=true;break;
+        }
+        else check=false;
+    }
+    if(check===false){
+        alert("từ cần dịch là không có trong từ điển");
+    }
+</script>
+</body>
+</html>

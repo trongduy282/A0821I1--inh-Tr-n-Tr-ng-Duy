@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*myColor = ["Red", "Green", "White", "Black"];
+    myColor.join(",");
+    document.write(myColor);*/
+
+    //let a = parseInt(prompt("nhap so bat ky"));
+
+    /*let a=prompt("nhap so bat ki");
+    let chuoi = a.toString();
+    let ketqua = [chuoi[0]];
+
+    for(let x=1; x<chuoi.length; x++)
+    {
+        if((chuoi[x-1]%2 === 0)&&(chuoi[x]%2 === 0))
+        {
+            ketqua.push('-', chuoi[x]);
+        }
+        else
+        {
+            ketqua.push(chuoi[x]);
+        }
+    }
+    console.log(ketqua.join(""));*/
+
+    let str = 'Hoc Code';
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    let result = [];
+
+    for(let x=0; x<str.length; x++)
+    {
+        if(UPPER.indexOf(str[x]) !== -1)
+        {
+            result.push(str[x].toLowerCase());
+        }
+        else if(LOWER.indexOf(str[x]) !== -1)
+        {
+            result.push(str[x].toUpperCase());
+        }
+        else
+        {
+            result.push(str[x]);
+        }
+    }
+    console.log(result.join(''));
+</script>
+</body>
+</html>

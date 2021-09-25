@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*let arr =Array(10);
+    let i
+    for(i=0;i<arr.length;i++){
+    arr[i] = parseInt(prompt("nhap gia trị các phần tử vị trí" + i));}
+    let j
+    for(j=0;j<arr.length;j++){
+        if(arr[j]>=10){
+            console.log("giá trị " + arr[j] + " ở vị trí " + j + " lớn hơn hoặc bằng 10")}
+    }*/
+
+
+    /*let arr =Array(10);
+    let i
+    for(i=0;i<arr.length;i++){
+        arr[i] = parseInt(prompt("nhap gia trị các phần tử vị trí" + i));}
+    arr.sort(function (a, b){
+        return a-b;
+    })
+    let j
+    for (i = 0; i < arr.length; i++) {
+        for (j = 0; j < arr.length; j++) {
+            if (i !== j){ if (arr[i] === arr[j]) {
+                alert("có 2 giá trị trùng nhau là " + arr[i]);
+                c= parseInt(prompt("nhập giá trị mới"));
+                arr[i]=c;
+            }}
+        }}
+    arr.sort(function (a, b){
+        return a-b;
+    })
+   alert("phần tử lớn nhất là" + arr[arr.length-1]);
+    alert("vị trí phần tử lớn nhất là " + (arr.length-1));*/
+
+    /*let arr = Array(10);
+    let i
+    for (i = 0; i < arr.length; i++) {
+        arr[i] = parseInt(prompt("nhap gia trị các phần tử vị trí" + i));
+    }
+
+    let j
+    let max
+    let index
+    for(j=0;j<arr.length;j++){
+        max= arr[0];
+        if(arr[j]>max){
+            max=arr[j]
+            index=j
+        }
+    }
+    document.write("giá trị lớn nhất là " + max + " ở vị trí " + index);
+    document.write("<br>");
+    let avg;
+    let k;
+    let sum=0;
+    for(k=0;k<arr.length;k++){
+        sum= sum +arr[k];
+        avg=sum/arr.length
+    }
+    document.write(sum);
+    document.write("<br>");
+    document.write(avg);*/
+
+   /*let a = [1,4,5,7,8,9];
+    let dau=0;
+    let cuoi=a.length-1;
+    let x;
+    while(dau<cuoi){
+        x=a[dau];
+        a[dau]=a[cuoi];
+        a[cuoi]=x;
+        dau++;
+        cuoi--
+    }
+     document.write(a);*/
+
+    /*let a = [-1,4,-5,7,-8,-9];
+    let i;
+for (i=0;i<a.length;i++){
+    if(a[i]<0){
+        document.write("phần tử " + i + " có giá trị âm là " + a[i]);
+        document.write("<br>")
+    }
+}*/
+    /*let arr = Array(10);
+    let i
+    for (i = 0; i < arr.length; i++) {
+        arr[i] = parseInt(prompt("nhap gia trị các phần tử vị trí" + i));
+    }
+    let x= parseInt(prompt("nhap số nguyên V"));
+    let c;
+    for (i = 0; i < arr.length; i++) {
+        if(x===arr[i]){
+            document.write("V is in the array");
+            c=true;break;
+        }else c=false;
+    }
+    if(c===false){
+        document.write("phần tử không có trong mảng");
+    }*/
+
+    /*let arr = Array(10);
+    let i
+    for (i = 0; i < arr.length; i++) {
+        arr[i] = parseInt(prompt("nhap gia trị các phần tử vị trí" + i));
+    }
+    let x= parseInt(prompt("nhap số nguyên V"));
+    for (i = 0; i < arr.length; i++) {
+        if(x===arr[i]){
+            arr.splice(i,1)
+            arr[arr.length]=0;
+        }
+    }
+    document.write(arr);*/
+
+    /*let arr = Array(10);
+    let i
+    for (i = 0; i < arr.length; i++) {
+        arr[i] = parseInt(prompt("nhap gia trị các phần tử vị trí" + i));
+    }
+    arr.sort(function (a, b){
+        return b-a;
+    })
+    document.write(arr)*/
+
+    let a = [1,2,3,4,5,6,7,8,9,10];
+    let b=[11,12,13,14,15,16,17,18,19,20];
+    let c= b.concat(a);
+    document.write(c);
+</script>
+</body>
+</html>
