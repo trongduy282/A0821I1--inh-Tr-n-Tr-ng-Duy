@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPrimre() {
+        let a = parseInt(prompt("nhập số bất kì nhỏ hơn 10000"));
+        while (a < 2 || a > 10000) {
+            a = parseInt(prompt("mời nhập lại"));
+        }
+        console.log(a);
+        let check;
+        for(i=2;i<a;i++){
+            if(a%i===0){
+                alert(a + " KO là số nguyên tố");
+                check=false;
+                break;
+            }else (check=true)
+        }
+        if(check===true){
+            alert(a + " là số nguyên tố")
+    }
+    }isPrimre();
+</script>
+</body>
+</html>

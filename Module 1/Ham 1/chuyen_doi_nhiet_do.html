@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Temperature Converter</h1>
+<p>Gõ độ F để đổi thành độ C</p>
+<p>Độ F là</p>
+<input id="nhietdo" type="text">
+<p>Độ C là</p>
+<button onclick="doinhietdo()">Chuyen doi</button>
+<h2 id="ketqua"></h2>
+<script>
+    function doinhietdo() {
+        i = document.getElementById("nhietdo").value
+        ketqua = (i-32)/ 1.8
+        document.getElementById('ketqua').innerText=ketqua;
+        return ketqua;
+    }
+    doinhietdo();
+</script>
+</body>
+</html>

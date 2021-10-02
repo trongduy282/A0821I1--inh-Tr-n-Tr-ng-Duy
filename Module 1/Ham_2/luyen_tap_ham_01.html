@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onClick="tinhtoan()">Click Here To Start</button>
+<script>
+
+    //Bài 1
+    /*<button id="alert" onClick="alertMessage()">Click Here</button>
+    function alertMessage(){
+        alert("xin chào")
+    }*/
+
+    //Bài 2
+    /*<button id="add1" onClick="themvao1()">Click Here To Add a Number</button>
+    function themvao1() {
+        n = parseInt(prompt("Nhập số bất kì"));
+        m=n+1;
+        document.write(m)
+    }*/
+
+    //Bài 3
+    /*function goiham(){
+        let a= parseInt(prompt("Nhập số thứ 1"));
+        let b= parseInt(prompt("Nhập số thứ 2"));
+        if(a>b){
+            alert(a + " lớn hơn " + b);
+        } else {
+            c=a+b;
+            alert("tổng là " + c)}
+    } goiham()*/
+
+    //Bài 4
+    /*function addNumbers() {
+        firstNum = 4;
+        secondNum = 8;
+        result = firstNum + secondNum;
+
+        return result;
+    }
+    result = 0;
+    alert(result);
+    result = addNumbers();
+    alert(result);*/
+
+    //Bài 5
+    ngoisao= ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus']
+    chomsao= ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo']
+    function tinhtoan(){
+        let a = []
+        a[0] = prompt("nhập tên ngôi sao");
+        let check;
+        for (i = 0; i < ngoisao.length; i++) {
+            if (a[0] === ngoisao[i]) {
+                check = true;
+                alert(a + ' có chòm sao là ' + chomsao[i])
+                break;
+            } else {check = false}
+        }
+        if (check === false) {
+            alert("tên chòm sao ko có");
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="nhapvao">
+<button onclick="checkso()">Kiểm tra</button>
+</body>
+<script>
+    let a
+    function checkso() {
+        a= document.getElementById("nhapvao").value;
+        console.log(a + typeof a)
+        if (typeof a === "number") {
+            alert(a + ' là số')
+        } else alert(a + ' KHÔNG phải là số');
+    }
+    checkso();
+</script>
+</html>

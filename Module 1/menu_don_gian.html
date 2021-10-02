@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>0.Cafe</p>
+<p>1.Cam vắt</p>
+<p>2.Nước ép cà rốt</p>
+<p>3.Nước ép cà chua</p>
+<p>4.Nước lọc</p>
+<p>5.Nước dừa</p>
+<p>6.Thoát menu</p>
+<button  onclick="tinhtien()">Chọn đồ uống</button>
+</body>
+<script>
+    //Yêu cầu 3 bài 5
+    let price=[15000,20000,25000,30000,10000,5000];
+    let bill=0;
+    let b
+    let i
+    let a
+    function tinhtien(){
+        for(i=0;i<price.length;i++){
+            a = parseInt(prompt("mời chọn số lượng đồ uống số " + i));
+            bill=bill+price[i]*a;
+            console.log(bill)
+        }
+        alert("bill là " + bill)
+    }
+</script>
+</html>
