@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*function isPalindrome(str) {
+        let arr = str.split("");
+        console.log(arr)
+        if (arr.length <= 1) {
+            console.log(arr)
+            return true;
+        }
+        if (arr[0] === arr[arr.length - 1]) {
+            arr.shift();
+            arr.pop();
+
+        } else {
+            return false;
+        }
+        str = arr.join("");
+        return isPalindrome(str);
+
+        // return true;
+    }
+
+
+    let check = isPalindrome("acbbca");
+    console.log(check)
+    if (check) {
+        alert("Chuỗi đối xứng!")
+    } else {
+        alert("Ko phải chuỗi đối xứng!")
+    }*/
+
+        let text = prompt('Nhập chuỗi cần kiểm tra tính đối xứng.');
+        text = text.trim();
+        let lengthText = text.length-1;
+        if(isPalindrome(text, 0, lengthText))     alert(text + ' là chuỗi đối xứng.');
+        else alert(text + ' không phải là chuỗi đối xứng.');
+
+        function isPalindrome(string, left, right){
+        if(left>=right) return true;
+        else
+    {
+        if(string[left]===string[right])
+        return isPalindrome(string, left+1, right-1);
+        else    return false;
+    }
+    }
+</script>
+</body>
+</html>
