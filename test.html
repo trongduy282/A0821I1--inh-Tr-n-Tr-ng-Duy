@@ -5,14 +5,28 @@
     <title>Title</title>
 </head>
 <body>
-<label for="input">Add new Product</label><br>
-<input type="text" placeholder="Nhập tên sản phẩm" id="input">
-<button onclick="addNewProduct()">Add</button>
-<div id="display">
 
-</div>
+
+
 <script>
-    let productList = ["Iphone 11", "Samsung Galaxy", "Nokia", "Xiaomi", "Blackberry"];
+    function findUnique(str){
+        // The variable that contains the unique values
+        let uniq = "";
+
+        for(let i = 0; i < str.length; i++){
+            // Checking if the uniq contains the character
+            if(uniq.includes(str[i]) === false){
+                // If the character not present in uniq
+                // Concatenate the character with uniq
+                uniq += str[i]
+            }
+        }
+        return uniq;
+    }
+
+    console.log(findUnique("cabca"))
+    console.log(findUnique("Geeksforgeeks Is a great site for computer science"))
+    /*let productList = ["Iphone 11", "Samsung Galaxy", "Nokia", "Xiaomi", "Blackberry"];
 
     function display() {
         let table = "<table  border='1px' cellpadding='10px'>" +
@@ -66,6 +80,26 @@
     let arr1 = [3, 5, 1, 8, -3, 7, 8];
     let min = minArray(arr3);
     alert(min);*/
+
+    /*let a = prompt("nhập xâu ký tự");
+    let b= a.split('')
+    console.log(b)
+    for (i = 0; i < b.length; i++) {
+        for (j = 1; j < b.length; j++) {
+            if (b[i] === b[j]) {
+                b.splice(j, 1, '');
+            }
+        }
+    }
+    for(i=0;i<b.length;i++){
+        if(b[i]===''){
+            b.splice(i,1);
+            i--;
+        }
+    }
+    console.log(b)*/
+
+
 </script>
 </body>
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Mobile {
+        constructor(pin, battat, soanthao, den, gui,) {
+            this.pin = pin;
+            this.battat = battat;
+            this.den = den;
+            this.gui = gui;
+            this.soanthao = soanthao;
+
+        }
+
+        pindienthoai() {
+            if (this.pin <= 0) {
+                alert('dien thoai tat')
+            } else alert('dien thoai bat voi phan tram pin la ' + this.pin);
+        }
+
+        //Có chức năng bật và tắt điện thoại. CHUA NGHI RA
+//Có chức năng xạc pin điện thoại. CHUA NGHI RA
+
+
+        setSoanthao(soanthao) {
+            this.soanthao = soanthao;
+        }
+        
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Date {
+        constructor(day, month, year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+
+        getDay() {
+            return this.day;
+        }
+
+        setDay(day) {
+            this.day = day;
+        }
+
+        getMonth() {
+            return this.month;
+        }
+
+        setMonth(month) {
+            this.month = month;
+        }
+
+        getYear() {
+            return this.year;
+        }
+
+        setYear(year) {
+            this.year = year;
+        }
+        setDate(day, month,year){
+            this.day=day;
+            this.month=month;
+            this.year=year;
+        }
+        toString(){
+            return this.day + '/' + this.month+ '/' +this.year
+        }
+    }
+let date = new Date(10,2,1994);
+    date.setDay(15);
+    date.setMonth(12);
+    date.setYear(2021)
+    date.setDate(18,11,2001)
+    //alert(date.getDay() + '/' + date.getMonth() + '/' +  date.getYear() );
+   date.toString();
+   document.write("ngay la" + date.toString())
+</script>
+</body>
+</html>

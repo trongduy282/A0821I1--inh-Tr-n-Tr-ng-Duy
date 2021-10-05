@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class HinhTron{
+        constructor(radius, color) {
+            this.radius = radius;
+            this.color = color;
+        }
+
+        getRadius() {
+            return this.radius;
+        }
+
+        getColor() {
+            return this.color;
+        }
+        getArea(){
+            return Math.PI * this.radius * this.radius
+        }
+    }
+    let tron = new HinhTron(2,"red");
+    document.write(tron.getRadius());
+    document.write("<br>");
+    document.write(tron.getArea());
+    alert("radius: " + tron.getRadius() + "; area: " + tron.getArea());
+</script>
+</body>
+</html>

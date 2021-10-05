@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class HinhChuNhat{
+        constructor(dai, rong,) {
+            this.dai = dai;
+            this.rong = rong;
+        }
+
+        setDai(dai) {
+            this.dai = dai;
+        }
+
+        setRong(rong) {
+            this.rong = rong;
+        }
+
+        DienTich(){
+            return this.dai*this.rong
+    }
+    ChuVi(){
+            return 2*(this.dai+this.rong)
+    }
+    }
+    let rectangle= new HinhChuNhat(9,5)
+    rectangle.setDai(10);
+
+    rectangle.setRong(3);
+    document.write(rectangle.DienTich());
+    document.write('<br>')
+    document.write(rectangle.ChuVi())
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature{
+        constructor(cencius) {
+            this.cencius= cencius
+        }
+        DoF(){
+        return (this.cencius*9/5)+32
+    }
+        DoK(){
+            return this.cencius+273.15
+        }
+    }
+    let nhietdoC= new Temperature(30)
+    document.write('do F là ' + nhietdoC.DoF());
+    document.write('do K là ' + nhietdoC.DoK());
+</script>
+</body>
+</html>
