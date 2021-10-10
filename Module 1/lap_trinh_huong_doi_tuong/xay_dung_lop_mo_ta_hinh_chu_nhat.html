@@ -5,9 +5,12 @@
     <title>Title</title>
 </head>
 <body>
+<canvas id="canvasexample" width="300" height='200'
+        style="background: whitesmoke;">
+</canvas>
 <script>
     class HinhChuNhat{
-        constructor(dai, rong,) {
+        constructor(dai, rong) {
             this.dai = dai;
             this.rong = rong;
         }
@@ -29,11 +32,15 @@
     }
     let rectangle= new HinhChuNhat(9,5)
     rectangle.setDai(10);
-
     rectangle.setRong(3);
     document.write(rectangle.DienTich());
     document.write('<br>')
     document.write(rectangle.ChuVi())
+    var c=document.getElementById("canvasexample");
+
+    //Lấy context
+    var ctx=c.getContext("2d");
+    ctx.fillRect(20,20,rectangle.dai,rectangle.rong);
 </script>
 </body>
 </html>

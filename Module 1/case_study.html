@@ -212,7 +212,137 @@ d= c.sort(function (a,b){
         }
     console.log(b)*/
 
-    //Yêu cầu 4 bài 3
+    //Yêu cầu 4 bài 3 CHƯA LÀM RA
+    /*let s1 = 'aabcc';
+    let s2 = 'adcaa';
+    let chuois1 = s1.split('');
+    let chuois2 = s2.split('');
+    let d=[];
+    let c=0;
+    let count=[];
+    console.log(chuois1);
+    console.log(chuois2);
+    for(i=0;i<chuois1.length;i++) {
+        for (j = 0; j < chuois2.length; j++) {
+            if(chuois1[i]===chuois2[j]){
+                d.push(chuois1[i]);
+                c=c++;
+            }
+                }count.push(c);
+        console.log(count);
+        c=0;
+    }console.log(d);
+    console.log(count);*/
+
+    /*str1 = "aabcc";
+    str2 = "adcaa";
+    str1mang=[];
+    count1=[];
+    str2mang=[];
+    count2=[];
+    for(i=0;i<str1.length;i++) {
+        for (j = 0; j < str2.length; j++) {
+            if (str1[i] === str2[j]) {
+                str1mang.push(str1[i]);
+                count1.push(str1.split(str1[i]).length - 1);
+                str2mang.push(str2[j]);
+                count2.push(str2.split(str2[j]).length - 1)
+            }
+        }
+    }
+    console.log(str1mang);
+    console.log(count1);
+    console.log(str2mang);
+    console.log(count2);*/
+
+
+    /*function getSameCount(str1, str2) {
+        let count = 0;
+        const obj = str2.split("");
+        for(str of str1){
+            let idx = obj.findIndex(s => s === str);
+            if(idx >= 0){
+                count++;
+                obj.splice(idx, 1);
+            }
+        }
+        return count;
+    }
+    console.log(getSameCount("aabcc", "adcaa"));*/
+
+    //YÊU CẦU 5 BÀI 1
+    /*let rowArr = parseInt(prompt("Input row:")); //3
+    let colArr = parseInt(prompt("Input col:")); //4
+
+    let arr2d = new Array(rowArr);
+    for (let row = 0; row < arr2d.length; row++) {
+        arr2d[row] = new Array(colArr);
+        for (let col = 0; col < arr2d[row].length; col++) {
+            let value = prompt("input value at [" + row + "][" + col + "] = "); //11
+            arr2d[row][col] = value;
+        }
+    }*/
+
+
+    /*hien thi mang 2d*/
+    /*for (let row = 0; row < arr2d.length; row++) {
+        for (let col = 0; col < arr2d[row].length; col++) {
+            document.write(arr2d[row][col] + " ")
+        }
+        document.write("<br>");
+    }*/
+    /*let tich=1
+    for (let row = 0; row < arr2d.length; row++) {
+        for (let col = 0; col < arr2d[row].length; col++) {
+            if(arr2d[row][col]%2===0){
+                tich= tich*arr2d[row][col]
+            }
+        }
+    }
+    //console.log(tich)*/
+
+    //YÊU CẦU 5 BÀI 2
+    /*let count = 0;
+    let nguyento = [];
+    let check;
+    for (let row = 0; row < arr2d.length; row++) {
+        for (let col = 0; col < arr2d[row].length; col++) {
+            for (i = 2; i < arr2d[row][col]; i++) {
+                if (arr2d[row][col] % i === 0) {
+                    check = false;
+                    break;
+                } else {
+                    check = true;
+                }
+            }
+            if (check === true) {
+                count++;
+                nguyento.push(arr2d[row][col])
+            }
+        }
+    }
+    console.log("so luong so nguyen to la " + count);
+    console.log(nguyento);*/
+
+    //YÊU CẦU 5 BÀI 3
+    /*let max=arr2d[0][0];
+    for (let row = 0; row < arr2d.length; row++) {
+        for (let col = 0; col < arr2d[row].length; col++) {
+            if(arr2d[row][col]>max){
+                max=arr2d[row][col]
+            }
+        }
+    }console.log(max)
+    let min=arr2d[0][0];
+    for (let row = 0; row < arr2d.length; row++) {
+        for (let col = 0; col < arr2d[row].length; col++) {
+            if(arr2d[row][col]<min){
+                min=arr2d[row][col]
+            }
+        }
+    }console.log(min)*/
+
+    //YÊU CẦU 6 BÀI
 
 </script>
 </body>

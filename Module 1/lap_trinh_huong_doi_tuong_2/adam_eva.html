@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight = weight;
+        }
+
+        Decrease() {
+            if (this.weight > 0) {
+                this.weight--
+            }
+        }
+
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+    }
+
+    class Human {
+        constructor(name, gender, Humanweight, appleWeight) {
+            this.gender = gender;
+            this.appleWeight= appleWeight;
+            this.name = name;
+            this.Humanweight = Humanweight;
+        }
+
+        isMale(){}
+
+
+        setGender(gender) {
+            this.gender = gender;
+        }
+        setAppleWeight(apple) {
+            this.appleWeight = apple.getWeight();
+        }
+        checkApple(apple){
+             return this.appleWeight
+        }
+
+        eat(apple){
+            if(this.appleWeight>0){
+                this.Humanweight++;
+                this.appleWeight--;
+                alert("cân nặng của bạn là : " + this.Humanweight +
+                " Số táo còn lại là " + this.appleWeight)
+            }
+        }
+        say(saysomething){
+            alert(saysomething)
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getHumanweight() {
+            return this.Humanweight;
+        }
+
+        setHumanweight(weight) {
+            this.Humanweight = weight;
+        }
+    }
+    let apple= new Apple();
+    apple.setWeight(10);
+    console.log(apple.getWeight())
+    let human = new Human();
+    human.setName("Duy");
+    human.setGender("Nam");
+    human.setHumanweight(60);
+    human.setAppleWeight(apple);
+    console.log(human.checkApple(apple))
+    human.eat();
+    human.eat()
+    console.log(human.checkApple(apple));
+</script>
+</body>
+</html>

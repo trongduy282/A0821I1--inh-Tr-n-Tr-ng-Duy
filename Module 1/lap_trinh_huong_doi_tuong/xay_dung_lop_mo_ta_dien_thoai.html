@@ -7,30 +7,67 @@
 <body>
 <script>
     class Mobile {
-        constructor(pin, battat, soanthao, den, gui,) {
-            this.pin = pin;
-            this.battat = battat;
-            this.den = den;
-            this.gui = gui;
-            this.soanthao = soanthao;
-
+        constructor() {
+            this.pin = 100;
+            this.receivedMessage = [];
+            this.sentMessage = [];
         }
 
-        pindienthoai() {
-            if (this.pin <= 0) {
-                alert('dien thoai tat')
-            } else alert('dien thoai bat voi phan tram pin la ' + this.pin);
+        getStatus() {
+            return this.status;
         }
 
-        //Có chức năng bật và tắt điện thoại. CHUA NGHI RA
-//Có chức năng xạc pin điện thoại. CHUA NGHI RA
-
-
-        setSoanthao(soanthao) {
-            this.soanthao = soanthao;
+        setStatus() {
+            // this.status = !this.status;
+            if (this.status) {
+                let check = confirm("Bạn có muốn tắt điện thoại không!");
+                if (check) {
+                    alert("Đã tắt điện thoại!");
+                    this.status = false;
+                }
+            } else {
+                alert("Đã bặt điện thoại!");
+                this.status = true;
+            }
         }
-        
+
+        //Phương thức sendMessage có 2 tham số là nội dung tin nhắn và địa chỉ muốn gửi tới
+        //    iphone là đối được nhận tin nhắn. khi gọi phương thức receiveMessage thì là đối tượng iphone gọi.
+        sendMessage(sentMessage, iphone) {
+            // Lưu tin nhắn đã gửi.
+            this.sentMessage.push(sentMessage);
+            // Dùng đối tượng điện thoại nhận tin nhắn để gọi phương thức receiveMessage, tham số là tin nhắn đã gửi
+            iphone.receiveMessage(sentMessage);
+            this.pin--;
+        }
+
+
+        receiveMessage(receivedMessage) {
+            this.receivedMessage.push(receivedMessage);
+            this.pin--;
+        }
+
+        checkPin(){
+            if (this.pin === 0){
+                alert("Sạc đê!")
+            }
+
+        }
     }
+
+    class phoneGap extends Mobile{
+
+    }
+
+    let iphone = new Mobile();
+    let nokia = new Mobile();
+
+    nokia.sendMessage("Xin chào", iphone);
+
+    console.log("Tin đã gửi: " + nokia.sentMessage);
+    console.log("Tin Đã nhận: " + iphone.receivedMessage);
+    console.log("Tin Đã nhận: " + iphone.pin);
+
 </script>
 </body>
 </html>
