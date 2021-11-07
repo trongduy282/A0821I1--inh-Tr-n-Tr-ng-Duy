@@ -1,4 +1,4 @@
-package _4_class_object.practice;
+package _4_class_object.exercise;
 
 
 public class QuadraticEquation {

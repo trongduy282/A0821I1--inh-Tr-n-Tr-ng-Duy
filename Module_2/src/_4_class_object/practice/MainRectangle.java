@@ -1,5 +1,7 @@
 package _4_class_object.practice;
 
+import _4_class_object.exercise.QuadraticEquation;
+
 import java.util.Scanner;
 
 public class MainRectangle {

@@ -1,4 +1,6 @@
-package _4_class_object.practice;
+package _4_class_object.exercise;
+
+import _4_class_object.practice.Rectangle;
 
 import java.util.Scanner;
 
