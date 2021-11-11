@@ -1,4 +1,4 @@
-package _6_inherite_java.practice;
+package _6_inherite_java.exercise;
 
 public class Cylinder extends Circle2 {
     private double height;
