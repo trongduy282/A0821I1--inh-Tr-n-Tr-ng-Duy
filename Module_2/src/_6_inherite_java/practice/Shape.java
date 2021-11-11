@@ -26,6 +26,7 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
+    @Override
 public String toString(){
         if(isFilled()){
             return "A Shape with color of"+ getColor() + "and filled";
