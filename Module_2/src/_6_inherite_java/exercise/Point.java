@@ -1,13 +1,12 @@
 package _6_inherite_java.exercise;
 
-public class Point2D {
+public class Point {
     private float x = 0.0f;
     private float y = 0.0f;
-
-    public Point2D(){};
-    public Point2D(float x, float y){
-        this.x= x;
-        this.y= y;
+    Point(){}
+    Point(float x, float y){
+        this.x=x;
+        this.y=y;
     }
 
     public float getX() {
@@ -25,19 +24,15 @@ public class Point2D {
     public void setY(float y) {
         this.y = y;
     }
-    public void setXY(float x, float y) {
-        this.x = x;
-        this.y=y;
+    public void setXY(float x, float y){
+        this.x =x;
+        this.y =y;
     }
     public float[] getXY(){
-        float[] res = {x,y};
+        float[] res ={x,y};
         return res;
     }
-
     public String toString(){
-        return "Point2D{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        return "(x: " + getX()+ ",y: "+getY()+")";
     }
 }
