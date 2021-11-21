@@ -1,4 +1,4 @@
-package _8_Clean_Code_Refactoring.practice;
+/*package _8_Clean_Code_Refactoring.practice;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -75,4 +75,4 @@ class CalculatorTest {
         assertThrows(RuntimeException.class,
                 ()-> {Calculator.calculate(a, b, o);});
     }
-}
+}*/

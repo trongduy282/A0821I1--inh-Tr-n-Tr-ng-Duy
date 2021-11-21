@@ -1,4 +1,4 @@
-package _8_Clean_Code_Refactoring.practice;
+/*package _8_Clean_Code_Refactoring.practice;
 
 public class CylinderTest {
     import org.junit.jupiter.api.DisplayName;
@@ -30,3 +30,4 @@ import static org.junit.jupiter.api.Assertions.*;
             assertEquals(expected, result);
         }
 }
+*/
