@@ -4,7 +4,7 @@ package _9_List_Java.exersice;
 import java.util.Arrays;
 
 public class MyList<E> {
-    /*private int size = 0;
+    private int size = 0;
     private static final int DEFAULT_CAPACITY = 10;
     private Object elements[];
 
@@ -44,7 +44,7 @@ public class MyList<E> {
             elements[j] = elements[j + 1];
         elements[size - 1] = null;
         size--;
-        return elements[index];
+        return (E) elements[index];
     }
 
     public int size() {
@@ -52,8 +52,7 @@ public class MyList<E> {
     }
 
     public E clone() {
-        E[] cloneArray = Arrays.copyOf(elements, size);
-        ;
+        E[] cloneArray = (E[]) Arrays.copyOf(elements, size);
         return (E) cloneArray;
     }
 
@@ -74,10 +73,10 @@ public class MyList<E> {
     }
     public E get(int index) {
         checkIndex(index);
-        return elements[index];
+        return (E) elements[index];
     }
     public void clear() {
         elements = (E[]) new Object[DEFAULT_CAPACITY];
         size = 0;
-    }*/
+    }
 }
