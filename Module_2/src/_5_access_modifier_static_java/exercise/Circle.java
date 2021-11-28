@@ -7,10 +7,10 @@ public class Circle {
     Circle(double r){
         this.radius =r;
     }
-     double getRadius(){
+    public double getRadius(){
         return this.radius;
     }
-     String getColor(){
+    public String getColor(){
         return this.color;
     }
 
