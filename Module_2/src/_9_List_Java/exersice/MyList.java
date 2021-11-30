@@ -68,7 +68,7 @@ public class MyList<E> {
         return -1;
     }
     private void ensureCapa(int minCapacity){
-        int newSize = elements.length*2;
+        //int newSize = elements.length*2;
         elements = Arrays.copyOf(elements, minCapacity);
     }
     public E get(int index) {

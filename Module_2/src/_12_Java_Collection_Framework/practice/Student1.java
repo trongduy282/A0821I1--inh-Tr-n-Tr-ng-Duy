@@ -42,8 +42,13 @@ public class Student1 implements Comparable <Student> {
                 '}';
     }
 
-    @Override
-    public int compareTo(Student student) {
+
+    public int compareTo(Student1 student) {
         return this.getName().compareTo(student.getName());
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return 0;
     }
 }

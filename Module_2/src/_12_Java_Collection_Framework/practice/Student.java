@@ -1,6 +1,6 @@
 package _12_Java_Collection_Framework.practice;
 
-public class Student {
+public class Student implements Comparable <Student>{
     private String name;
     private int age;
     private String address;
@@ -45,4 +45,8 @@ public class Student {
         return "Student@name=" + name + ",age=" + age + ",address=" + address;
     }
 
+
+    public int compareTo(Student student) {
+        return this.getName().compareTo(student.getName());
+    }
 }

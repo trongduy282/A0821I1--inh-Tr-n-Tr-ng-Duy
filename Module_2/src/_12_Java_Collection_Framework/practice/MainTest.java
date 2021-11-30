@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MainTest {
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         Student student = new Student("Kien", 30, "HT");
         Student student1 = new Student("Nam", 26, "HN");
         Student student2 = new Student("Anh", 38, "HT" );
@@ -28,5 +28,5 @@ public class MainTest {
         for(Student st : lists){
             System.out.println(st.toString());
         }
-    }*/
+    }
 }
