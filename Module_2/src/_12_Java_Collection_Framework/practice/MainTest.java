@@ -1,11 +1,13 @@
 package _12_Java_Collection_Framework.practice;
 
+import _16_IO_Text_File.pratice.test;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class MainTest {
-
+public static final String COMMA = ",";
     public static void main(String[] args) {
         Student student = new Student("Kien", 30, "HT");
         Student student1 = new Student("Nam", 26, "HN");
@@ -18,8 +20,11 @@ public class MainTest {
         lists.add(student2);
         lists.add(student3);
         Collections.sort(lists);
+        String line = null;
         for(Student st : lists){
-            System.out.println(st.toString());
+            //System.out.println(st.toString());
+//            line =st.getName() +COMMA+ st.getAge()+COMMA+ st.getAddress();
+            test.writeFile(st);
         }
 
         AgeComparator ageComparator = new AgeComparator();
