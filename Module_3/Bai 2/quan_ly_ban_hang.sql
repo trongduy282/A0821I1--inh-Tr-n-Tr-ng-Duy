@@ -27,3 +27,9 @@ foreign key (o_id) references `order`(o_id),
 foreign key (p_id) references product(p_id),
 primary key (o_id,p_id)
 );
+
+-- [Bài tập] Thao tác với CSDL Quản lý bán hàng
+INSERT INTO `quan_ly_ban_hang`.`customer` (`c_id`, `c_name`, `c_age`) VALUES ('1', 'Minh Quan', '10');
+INSERT INTO `quan_ly_ban_hang`.`customer` (`c_id`, `c_name`, `c_age`) VALUES ('2', 'Ngoc Oanh', '20');
+INSERT INTO `quan_ly_ban_hang`.`customer` (`c_id`, `c_name`, `c_age`) VALUES ('3', 'Hong Ha', '50');
+
