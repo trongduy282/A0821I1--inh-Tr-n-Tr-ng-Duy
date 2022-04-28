@@ -86,3 +86,41 @@ select student_name,sub_name,mark from student
 join mark on student.student_id= mark.student_id
 join `subject` on mark.sub_id= `subject`.sub_id
 order by mark desc, student_name asc;
+
+-- Hiển thị số lượng sinh viên ở từng nơi
+select address, count(student_id) as so_luong_sinh_vien 
+from student
+group by address;
+
+-- Tính điểm trung bình các môn học của mỗi học viên
+select avg(mark) as diem_trung_binh, student.student_id, student_name from student
+join mark on mark.student_id = student.student_id
+group by student.student_name,student.student_id;
+
+-- Hiển thị những bạn học viên co điểm trung bình các môn học lớn hơn 15
+select avg(mark) as diem_trung_binh, student.student_id, student_name from student
+join mark on mark.student_id = student.student_id
+group by student.student_name,student.student_id
+having diem_trung_binh>15;
+
+-- Hiển thị thông tin các học viên có điểm trung bình lớn nhất.
+select avg(mark), student.student_id, student_name from student
+join mark on mark.student_id = student.student_id
+group by student.student_name,student.student_id
+having avg(mark) >= all( select avg(mark) from mark group by mark.student_id);
+
+-- Hiển thị tất cả các thông tin môn học (bảng subject) có credit lớn nhất.
+select * from `subject` 
+where credit >= all( select credit from `subject`);
+
+-- Hiển thị các thông tin môn học có điểm thi lớn nhất.
+
+select * from `subject` 
+join mark on `subject`.sub_id = mark.sub_id
+where mark >= all( select mark from mark);
+
+-- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
+select avg(mark), student.student_id, student_name,address,phone,`status`,class_id from student
+join mark on mark.student_id = student.student_id
+group by student.student_name,student.student_id
+order by student.student_id desc;
