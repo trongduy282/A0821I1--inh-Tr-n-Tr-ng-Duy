@@ -327,7 +327,12 @@ where year(ngay_lam_hop_dong) =2021 and (chi_phi_thue + ifnull((so_luong*gia),0)
 group by khach_hang.ma_khach_hang) as bang_1
 );
 
--- CÂU 18 CHƯA LÀM
+-- CÂU 18 
+-- bảng khach_hang
+-- bảng hop_dong
+select khach_hang.ma_khach_hang, khach_hang.ho_ten from khach_hang
+join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+where ngay_lam_hop_dong 
 
 -- CÂU 19 ĐANG SAI
 select hop_dong_chi_tiet.ma_dich_vu_di_kem, ten_dich_vu_di_kem from dich_vu_di_kem
