@@ -1,4 +1,5 @@
 create database casestudy;
+use casestudy;
 create table vi_tri(
 ma_vi_tri int auto_increment primary key,
 ten_vi_tri varchar(45)
@@ -165,7 +166,173 @@ values (5,2,4),
 ;
 -- Câu 2
 select * from nhan_vien
-where ho_ten like "H%" or like "T%" Or like "K%";
+where (ho_ten like "H%" or  ho_ten like "T%" Or ho_ten like "K%") and char_length(ho_ten)<=15;
 -- Câu 3
 select * from khach_hang
 where (dia_chi like "%Đà Nẵng%" or dia_chi like "%Quảng Trị%") and (YEAR(CURDATE()) -year(ngay_sinh)) between 18 and 50;
+
+-- Câu 4
+select khach_hang.ma_khach_hang, ho_ten, count(khach_hang.ma_khach_hang) from khach_hang
+join hop_dong on khach_hang.ma_khach_hang =hop_dong.ma_khach_hang
+join loai_khach on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
+where ten_loai_khach = "Diamond"
+group by khach_hang.ma_khach_hang,ho_ten
+order by count(ma_khach_hang) asc;
+
+-- Câu 5 ĐÃ SỬA
+-- ma_khach_hang, ho_ten: BẢNG KHACH HÀNG//
+--  ten_loai_khach: BẢNG LOẠI KHÁCH//
+-- ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, : BẢNG HỢP ĐỒNG//
+-- ten_dich_vu: BẢNG DỊCH VỤ//
+-- tong_tien : BẢNG dich_vu_di_kem, hop_dong_chi_tiet
+-- tổng tiền được tính theo công thức như sau: Chi Phí Thuê + Số Lượng * Giá
+-- chi phí thuê: BẢNG DỊCH VỤ//
+select khach_hang.ma_khach_hang, ho_ten, ten_loai_khach, hop_dong.ma_hop_dong, ten_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, 
+(chi_phi_thue + ifnull((so_luong*gia),0)) as tong_tien
+from khach_hang
+left join loai_khach on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
+left join hop_dong on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+left join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+left join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+left join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+group by hop_dong.ma_hop_dong;
+
+-- CÂU 6 ĐÃ SỬA
+select dich_vu.ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, ten_loai_dich_vu from dich_vu 
+join loai_dich_vu on loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
+-- join hop_dong on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+where dich_vu.ma_dich_vu not in 
+(select hop_dong.ma_dich_vu from hop_dong
+where ngay_lam_hop_dong between "2021-01-01" and "2021-03-31"
+);
+
+-- Câu 7 ĐÃ SỬA
+-- ma_dich_vu, ten_dich_vu,dien_tich,so_nguoi_toi_da, chi_phi_thue : BẢNG DỊCH VỤ
+-- ten_loai_dich_vu : BẢNG LOẠI DỊCH VỤ
+select dich_vu.ma_dich_vu, ten_dich_vu, dien_tich, so_nguoi_toi_da, chi_phi_thue, ten_loai_dich_vu from dich_vu 
+join loai_dich_vu on loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
+-- join hop_dong on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+where dich_vu.ma_dich_vu in 
+(select hop_dong.ma_dich_vu from hop_dong
+where ngay_lam_hop_dong between "2020-01-01" and "2020-12-31"
+)
+and dich_vu.ma_dich_vu not in (select hop_dong.ma_dich_vu from hop_dong
+where ngay_lam_hop_dong between "2021-01-01" and "2021-12-31"
+);
+
+-- CÂU 8 KHÔNG BIẾT LÀM
+select distinct ho_ten from khach_hang;
+
+-- CÂU 9 ĐÃ SỬA
+select month(ngay_lam_hop_dong) as thang, count(ma_khach_hang) from hop_dong 
+where year(hop_dong.ngay_lam_hop_dong) =2021
+group by month(ngay_lam_hop_dong);
+-- CÂU 10 
+-- ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, : BẢNG HỢP ĐÔNG
+-- so_luong_dich_vu_di_kem : BẢNG DỊCH VỤ ĐI KÈM
+-- THÊM HỢP ĐÔNG CHI TIẾT
+select hop_dong.ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, sum(so_luong) from hop_dong
+join hop_dong_chi_tiet on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+group by hop_dong_chi_tiet.ma_hop_dong;
+
+-- CÂU 11
+-- dịch vụ đi kèm: bảng dịch vụ đi kèm ĐI VỚI hợp đồng chi tiết, ĐI VỚI hợp đồng
+-- khách hàng: bảng khách hàng
+-- loại khách: bảng loại khách
+select dich_vu_di_kem.ma_dich_vu_di_kem,ten_dich_vu_di_kem,gia, don_vi, trang_thai, ten_loai_khach,dia_chi from dich_vu_di_kem
+join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+join hop_dong on hop_dong.ma_hop_dong= hop_dong_chi_tiet.ma_hop_dong
+join khach_hang on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+join loai_khach on loai_khach.ma_loai_khach =khach_hang.ma_loai_khach
+where (ten_loai_khach = "Diamond" and dia_chi like "%Vinh%") or (ten_loai_khach = "Diamond" and dia_chi like "%Quảng Ngãi%");
+
+-- CÂU 12 ĐÃ SỬA
+-- ma_hop_dong hop_dong//
+-- ho_ten bảng nhân viên//
+-- ho_ten bảng, so_dien_thoai bảng khách hàng//
+--  ten_dich_vu bảng dịch vụ//
+-- so_luong_dich_vu_di_kem bảng hop_dong_chi_tiet//(được tính dựa trên việc sum so_luong ở dich_vu_di_kem), 
+-- tien_dat_coc bảng hop_dong của tất cả các dịch vụ đã từng được khách hàng đặt
+select hop_dong.ma_hop_dong, nhan_vien.ho_ten as ten_nhan_vien,khach_hang.ho_ten as ten_khach_hang, khach_hang.so_dien_thoai, ten_dich_vu, sum(so_luong) as so_luong_dich_vu_di_kem, tien_dat_coc from hop_dong
+left join nhan_vien on nhan_vien.ma_nhan_vien = hop_dong.ma_nhan_vien
+left join khach_hang on khach_hang.ma_khach_hang = hop_dong.ma_khach_hang
+left join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+where dich_vu.ma_dich_vu in (select hop_dong.ma_dich_vu from hop_dong where ngay_lam_hop_dong between "2020-10-01" and "2020-12-31")
+and
+dich_vu.ma_dich_vu not in (select hop_dong.ma_dich_vu from hop_dong
+where ngay_lam_hop_dong between "2021-01-01" and "2021-06-30")
+group by hop_dong.ma_hop_dong;
+
+-- CÂU 13 ĐÃ SỬA
+-- các bảng: khach_hang, hop_dong//, hop_dong_chi_tiet//, dich_vu_di_kem//
+select dich_vu_di_kem.ma_dich_vu_di_kem, ten_dich_vu_di_kem, sum(so_luong) from dich_vu_di_kem
+join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+-- join hop_dong on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+-- join khach_hang on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+group by ma_dich_vu_di_kem
+having sum(so_luong)>=
+(select max(so_luong) from dich_vu_di_kem
+join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_dich_vu_di_kem= dich_vu_di_kem.ma_dich_vu_di_kem);
+
+-- CÂU 14
+select ten_dich_vu_di_kem,gia, hop_dong.ma_hop_dong,ten_loai_dich_vu, count(so_luong) as so_lan_su_dung from dich_vu_di_kem
+join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+join hop_dong on hop_dong.ma_hop_dong = hop_dong_chi_tiet.ma_hop_dong
+join khach_hang on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+join loai_dich_vu on loai_dich_vu.ma_loai_dich_vu = dich_vu.ma_loai_dich_vu
+group by dich_vu_di_kem.ma_dich_vu_di_kem
+having so_lan_su_dung= 1;
+
+-- CÂU 15
+-- BẢNG: nhan_vien, trinh_do, bo_phan, hop_dong
+select nhan_vien.ma_nhan_vien,nhan_vien.ho_ten, ten_trinh_do,ten_bo_phan,nhan_vien.so_dien_thoai,nhan_vien.dia_chi from nhan_vien
+join trinh_do on trinh_do.ma_trinh_do = nhan_vien.ma_trinh_do
+join bo_phan on bo_phan.ma_bo_phan = nhan_vien.ma_bo_phan
+join hop_dong on hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
+group by nhan_vien.ma_nhan_vien
+having count(hop_dong.ma_nhan_vien)<=3;
+
+-- CÂU 16 ĐÃ SỬA Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021.
+-- bảng: nhân viên,hợp động
+select nhan_vien.ma_nhan_vien,nhan_vien.ho_ten from nhan_vien
+join hop_dong on hop_dong.ma_nhan_vien= nhan_vien.ma_nhan_vien
+group by nhan_vien.ma_nhan_vien
+having nhan_vien.ma_nhan_vien not in (select nhan_vien.ma_nhan_vien from nhan_vien 
+join hop_dong on hop_dong.ma_nhan_vien=nhan_vien.ma_nhan_vien
+where hop_dong.ngay_lam_hop_dong between "2019-01-01" and "2021-01-01"
+group by ma_nhan_vien
+);
+
+-- CÂU 17 ĐANG SAI
+-- bảng: khach_hang, dich_vu_di_kem,dich_vu,hop_dong, loai_khach
+select khach_hang.ma_khach_hang, ho_ten, loai_khach.ma_loai_khach, (chi_phi_thue + ifnull((so_luong*gia),0)) as tong_tien from khach_hang
+left join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+left join loai_khach on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
+left join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong= hop_dong.ma_hop_dong
+left join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+where year(ngay_lam_hop_dong) =2021 and (chi_phi_thue + ifnull((so_luong*gia),0)) >=10000000 and khach_hang.ma_loai_khach =2
+group by khach_hang.ma_khach_hang;
+update khach_hang set ma_loai_khach = 1 where khach_hang.ma_khach_hang in( 
+ select * from (select khach_hang.ma_khach_hang from khach_hang
+left join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+left join loai_khach on loai_khach.ma_loai_khach = khach_hang.ma_loai_khach
+left join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong= hop_dong.ma_hop_dong
+left join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+where year(ngay_lam_hop_dong) =2021 and (chi_phi_thue + ifnull((so_luong*gia),0)) >=10000000 and khach_hang.ma_loai_khach =2
+group by khach_hang.ma_khach_hang) as bang_1
+);
+
+-- CÂU 18 CHƯA LÀM
+
+-- CÂU 19 ĐANG SAI
+select hop_dong_chi_tiet.ma_dich_vu_di_kem, ten_dich_vu_di_kem from dich_vu_di_kem
+join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+group by hop_dong_chi_tiet.ma_dich_vu_di_kem
+having so_luong>10;
+
+-- CÂU 20
