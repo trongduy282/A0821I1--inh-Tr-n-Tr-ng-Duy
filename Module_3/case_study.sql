@@ -306,7 +306,7 @@ where hop_dong.ngay_lam_hop_dong between "2019-01-01" and "2021-01-01"
 group by ma_nhan_vien
 );
 
--- CÂU 17 ĐANG SAI
+-- CÂU 17 ĐÃ SỬA
 -- bảng: khach_hang, dich_vu_di_kem,dich_vu,hop_dong, loai_khach
 select khach_hang.ma_khach_hang, ho_ten, loai_khach.ma_loai_khach, (chi_phi_thue + ifnull((so_luong*gia),0)) as tong_tien from khach_hang
 left join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
@@ -327,17 +327,18 @@ where year(ngay_lam_hop_dong) =2021 and (chi_phi_thue + ifnull((so_luong*gia),0)
 group by khach_hang.ma_khach_hang) as bang_1
 );
 
--- CÂU 18 
+-- CÂU 18
 -- bảng khach_hang
 -- bảng hop_dong
 select khach_hang.ma_khach_hang, khach_hang.ho_ten from khach_hang
 join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
-where ngay_lam_hop_dong 
+where ngay_lam_hop_dong <= "2020-12-31";
 
 -- CÂU 19 ĐANG SAI
-select hop_dong_chi_tiet.ma_dich_vu_di_kem, ten_dich_vu_di_kem from dich_vu_di_kem
+select hop_dong_chi_tiet.ma_dich_vu_di_kem, ten_dich_vu_di_kem,so_luong,ngay_lam_hop_dong from dich_vu_di_kem
 join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
+join hop_dong where hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
 group by hop_dong_chi_tiet.ma_dich_vu_di_kem
-having so_luong>10;
+having hop_dong_chi_tiet.so_luong>10 and year(ngay_lam_hop_dong)="2020";
 
 -- CÂU 20
