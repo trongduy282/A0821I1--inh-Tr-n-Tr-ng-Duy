@@ -334,7 +334,7 @@ select khach_hang.ma_khach_hang, khach_hang.ho_ten from khach_hang
 join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
 where ngay_lam_hop_dong <= "2020-12-31";
 
--- CÂU 19 ĐANG SAI
+-- CÂU 19
 select hop_dong_chi_tiet.ma_dich_vu_di_kem, ten_dich_vu_di_kem,so_luong,ngay_lam_hop_dong from dich_vu_di_kem
 join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_dich_vu_di_kem = dich_vu_di_kem.ma_dich_vu_di_kem
 join hop_dong where hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
@@ -342,3 +342,25 @@ group by hop_dong_chi_tiet.ma_dich_vu_di_kem
 having hop_dong_chi_tiet.so_luong>10 and year(ngay_lam_hop_dong)="2020";
 
 -- CÂU 20
+select ma_khach_hang, ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi from khach_hang
+union
+select ma_nhan_vien, ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi from nhan_vien;
+
+-- CÂU 21
+create view v_nhan_vien as 
+select ho_ten, nhan_vien.ma_nhan_vien, ngay_sinh, so_cmnd, luong,so_dien_thoai, email,dia_chi,ma_vi_tri, ma_trinh_do,ma_bo_phan from nhan_vien
+join hop_dong on hop_dong.ma_nhan_vien = nhan_vien.ma_nhan_vien
+where dia_chi like "%Hải Châu%" and ngay_lam_hop_dong = "2019-12-12";
+
+-- CÂU 22 đề bị điên hả, có cái nào hiện ra cái view đâu mà thay đổi
+
+-- CÂU 23 sp_xoa_khach_hang 
+
+delimiter //
+create procedure xoa_khach_hang( in ma_khach_hang int)
+begin
+	 delete from khach_hang
+    where ma_khach_hang = xoa_khach_hang;
+end;
+// delimiter ;
+-- CÂU 24
