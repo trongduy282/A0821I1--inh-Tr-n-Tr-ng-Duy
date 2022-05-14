@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Layout với RWD</title>
+    <style>
+.col-md-1{width: 8.33333%;}
+.col-md-2{width: 16.66667%;}
+.col-md-3{width: 25%;}
+.col-md-4{width: 33.33333%;}
+.col-md-5{width: 41.66667%;}
+.col-md-6{width: 50%;}
+.col-md-7{width: 58.33333%;}
+.col-md-8{width: 66.66667%;}
+.col-md-9{width: 75%;}
+.col-md-10{width: 83.33333%;}
+.col-md-11{width: 91.66667%;}
+.col-md-12{width: 100%}
+
+.row{display: flex;
+    flex-wrap: wrap}
+    </style>
+</head>
+<body>
+<div class="col-md-12 row" style="background-color: grey; height: 50px; margin: auto">
+    <div class="col-md-5" >
+        <table>
+            <tr>
+                <td>Logo</td>
+                <td>Home</td>
+                <td>About</td>
+                <td>Project</td>
+                <td>Contact</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-4" >
+    </div>
+    <div class="col-md-3" style="direction: rtl; ">
+        <table>
+            <tr>
+                <td>Login</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="col-md-12 row" style="height: 500px; margin: auto">
+    <div class="col-md-3" style="background-color: gray" >
+      <ul>
+          <li>Link</li>
+          <li>Link</li>
+          <li>Link</li>
+      </ul>
+    </div>
+    <div class="col-md-6" >
+        <h1>Welcome</h1>
+        <p>Text</p>
+    </div>
+    <div class="col-md-3"; style="display: block; background-color: gray">
+        <table>
+            <tr>
+                <td>Ads</td>
+                <td>Ads</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="col-md-12 row" style=" height: 500px; margin: auto">
+    <div class="col-md-3" style="background-color: gray">
+    </div>
+    <div class="col-md-6" >
+        <h1>Test</h1>
+        <p>Lorem ipsum</p>
+    </div>
+    <div class="col-md-3" style="direction: rtl; background-color: gray">
+
+    </div>
+</div>
+<div class="col-md-12 row" style="background-color: grey; height: 50px; margin: auto; margin: auto">
+    Footer Text
+</div>
+</body>
+</html>
