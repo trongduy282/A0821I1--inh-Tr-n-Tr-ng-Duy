@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <style>
+        @media only screen and (max-width:500px ){
+            .col-xs-1 {width: 8.33333%;}
+            .col-xs-2 {width: 16.66667%;}
+            .col-xs-3 {width: 25%;}
+            .col-xs-4 {width: 33.33333%;}
+            .col-xs-5 {width: 41.66667%;}
+            .col-xs-6 {width: 50%;}
+            .col-xs-7 {width: 58.33333%;}
+            .col-xs-8 {width: 66.66667%;}
+            .col-xs-9 {width: 75%;}
+            .col-xs-10 {width: 83.33333%;}
+            .col-xs-11 {width: 91.66667%;}
+            .col-xs-12 {width: 100%;}
+            li{
+                text-align: center;
+                color: red;
+            }
+        }
+        @media only screen and (min-width:500px )and (max-width:700px ){
+            .col-s-1 {width: 8.33333%;}
+            .col-s-2 {width: 16.66667%;}
+            .col-s-3 {width: 25%;}
+            .col-s-4 {width: 33.33333%;}
+            .col-s-5 {width: 41.66667%;}
+            .col-s-6 {width: 50%;}
+            .col-s-7 {width: 58.33333%;}
+            .col-s-8 {width: 66.66667%;}
+            .col-s-9 {width: 75%;}
+            .col-s-10 {width: 83.33333%;}
+            .col-s-11 {width: 91.66667%;}
+            .col-s-12 {width: 100%;}
+            li{
+                text-align: center;
+                color: red;
+            }
+        }
+
+        @media only screen and (min-width:700px){
+            .col-l-1 {width: 8.33333%;}
+            .col-l-2 {width: 16.66667%;}
+            .col-l-3 {width: 25%;}
+            .col-l-4 {width: 33.33333%;}
+            .col-l-5 {width: 41.66667%;}
+            .col-l-6 {width: 50%;}
+            .col-l-7 {width: 58.33333%;}
+            .col-l-8 {width: 66.66667%;}
+            .col-l-9 {width: 75%;}
+            .col-l-10 {width: 83.33333%;}
+            .col-l-11 {width: 91.66667%;}
+            .col-l-12 {width: 100%;}
+        }
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>
+        Responsive Image Gallery
+    </h1>
+    <p>Resize the browser window to see the effect.</p>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-s-10 col-md-8 contain" >
+        <div class="row">
+            <div class="card; row" style="width: 18rem;">
+                <img src="https://demo.codegym.vn/web/15/gallery/img_fjords.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Add a description of the image here</p>
+                </div>
+            </div>
+            <div class="card; row"  style="width: 18rem;">
+                <img src="https://demo.codegym.vn/web/15/gallery/img_forest.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Add a description of the image here</p>
+                </div>
+            </div>
+            <div class="card; row"  style="width: 18rem;">
+                <img src="https://demo.codegym.vn/web/15/gallery/img_lights.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Add a description of the image here</p>
+                </div>
+            </div>
+            <div class="card; row" style="width: 18rem;">
+                <img src="https://demo.codegym.vn/web/15/gallery/img_mountains.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Add a description of the image here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
