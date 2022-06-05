@@ -1,14 +1,14 @@
 model/bean/Product.java
  model.bean.Product
-model/service/impl/ProductService.java
- model.service.impl.ProductService
 controller/HomeServlet.java
  controller.HomeServlet
 model/service/IProductService.java
  model.service.IProductService
-model/repository/impl/ProductRepository.java
- model.repository.impl.ProductRepository
 model/repository/IProductRepository.java
  model.repository.IProductRepository
+model/service/impl/ProductService.java
+ model.service.impl.ProductService
+model/repository/impl/ProductRepository.java
+ model.repository.impl.ProductRepository
 controller/ProductServlet.java
  controller.ProductServlet

@@ -32,11 +32,10 @@ public class ProductRepository implements IProductRepository {
         Product result = null;
         for (Product p : productList) {
             if (name.equals(p.getName())) {
-                result = productList.get(p.getId());
-                break;
+                return result = productList.get(p.getId());
             }
         }
-        return result;
+        return null;
     }
     @Override
     public void add(Product product) {

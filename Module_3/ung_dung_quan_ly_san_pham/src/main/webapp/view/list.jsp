@@ -16,10 +16,10 @@
 <a href="/product?action=add">Thêm mới</a>
 <h1>Danh sách sản phẩm</h1>
 <a href="/product?action=edit">Edit</a>
-<p>
-    <input type="text" value="find product name">
-    <a href="//product?action=findByName">Back to product list</a>
-</p>
+<%--<p>--%>
+<%--    <input type="text" value="find product name">--%>
+<%--    <a href="//product?action=findByName">Back to product list</a>--%>
+<%--</p>--%>
 <table border="1" style="border-collapse:  collapse">
     <tr>
         <th>STT</th>
@@ -42,5 +42,11 @@
         </tr>
     </c:forEach>
 </table>
+<form action="/product" method="get">
+    <h1>Product search</h1>
+    <input type="text" name="name" placeholder="input name">
+    <br>
+    <input type="submit" name="action" value="search">
+</form>
 </body>
 </html>

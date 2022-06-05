@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static model.repository.impl.ProductRepository.productList;
@@ -39,6 +40,10 @@ public class ProductServlet extends HttpServlet {
         // xem chi tiet sp
             viewCustomer(request, response);
         break;
+
+        case "search":
+                searchProduct(request,response);
+                break;
             default:
             listProducts(request, response);
         }
@@ -224,5 +229,21 @@ public class ProductServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    private void searchProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+            IOException {
+        String name = request.getParameter("name");
+        Product product = productService.findByName(name);
+        List<Product> productList = new ArrayList<>();
+        productList.add(product);
+
+        RequestDispatcher dispatcher;
+        if(product==null) {
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        }else {
+            request.setAttribute("productList",productList);
+            dispatcher = request.getRequestDispatcher("view/list.jsp");
+        }
+        dispatcher.forward(request,response);
     }
     }
