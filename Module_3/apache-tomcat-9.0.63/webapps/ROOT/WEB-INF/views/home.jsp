@@ -18,6 +18,6 @@
 </form>
 <%--<h1> Số nhập là: ${number}</h1>--%>
 
-<h1>Chuyển đổi là: ${number}</h1>
+<h1>Chuyển đổi là: ${translate}</h1>
 </body>
 </html>
