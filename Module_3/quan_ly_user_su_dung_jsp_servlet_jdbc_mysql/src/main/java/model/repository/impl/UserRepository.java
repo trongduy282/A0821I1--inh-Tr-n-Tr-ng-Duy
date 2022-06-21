@@ -37,7 +37,8 @@ public class UserRepository implements IUserRepository {
 
     @Override
     public User selectUser(int id) {
-        return null;
+        return
+                null;
     }
 
     @Override
