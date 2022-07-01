@@ -1,0 +1,14 @@
+codegym/vn/entity/Email.java
+ codegym.vn.entity.Email
+codegym/vn/repository/EmailRepositoryImpl.java
+ codegym.vn.repository.EmailRepositoryImpl
+codegym/vn/a.java
+ codegym.vn.a
+codegym/vn/config/AppInitiallizer.java
+ codegym.vn.config.AppInitiallizer
+codegym/vn/config/AppConfig.java
+ codegym.vn.config.AppConfig
+codegym/vn/repository/EmailRepository.java
+ codegym.vn.repository.EmailRepository
+codegym/vn/controller/EmailController.java
+ codegym.vn.controller.EmailController
