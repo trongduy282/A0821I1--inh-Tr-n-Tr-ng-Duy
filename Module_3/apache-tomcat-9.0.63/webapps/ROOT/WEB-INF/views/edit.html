@@ -1,36 +1,22 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head"></head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <body>
-<h3>Edit Products</h3>
-<p>
-    <a th:href="@{/product}">
-        Back to product list
-    </a>
-</p>
-<div id="form">
-    <form action="#" th:action="@{/product/update}" th:object="${product}"
-          method="POST" novalidate="novalidate">
-        <div>
-            <label>Product Name</label>
-            <input type="text" th:field="*{productName}"/>
-        </div>
-        <div>
-            <label>Price</label>
-            <input type="text" th:field="*{price}"/>
-        </div>
-        <div>
-            <label>Description</label>
-            <input type="text" th:field="*{description}"/>
-        </div>
-        <div>
-            <label>Manufacture</label>
-            <input type="text" th:field="*{manufacture}"/>
-        </div>
-        <input type="submit" value="Edit"/>
-    </form>
-</div>
-<footer th:replace="/layout :: footer"></footer>
+<form th:object="${song}" action="/edit" method="post">
+    <span hidden>
+        Song ID<input th:field="*{songId}"><br>
+    </span>
+    Name Song<input th:field="*{songName}"><br>
+    Artist<input th:field="*{artist}"><br>
+    Genre<input th:field="*{genre}"><br>
+    Link<input th:field="*{link}"><br>
+    <!--    Classroom Student<input th:field="*{classroom}"><br>-->
+    <button type="submit">Edit</button>
+    <!--    <p th:text="${mess}"></p>-->
+    <!--    Class Student<input th:field="*{listClass}"><br>-->
+</form>
 </body>
 </html>
-
