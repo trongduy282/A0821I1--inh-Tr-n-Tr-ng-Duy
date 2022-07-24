@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Student</title>
+</head>
+<body>
+<form action="/student/create" method="post" th:object="${student}">
+    <div>
+        <label>Name</label>
+        <input type="text" th:field="*{name}">
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></p>
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="text" th:field="*{email}">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></p>
+    </div>
+    <div>
+        <label>Gender</label>
+        <td>
+            <input type="radio" th:field="*{gender}" th:value="1" />
+            <label th:text="male" />
+            <input type="radio" th:field="*{gender}" th:value="0" />
+            <label th:text="female" />
+        </td>
+    </div>
+    <div>
+        <label>Phone Number</label>
+        <input type="text" th:field="*{phoneNumber}">
+        <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="text-danger"></p>
+    </div>
+    <div>
+        <label>Birthday</label>
+        <input type="date" th:field="*{birthday}">
+    </div>
+    <div>
+        <label>ClassName</label>
+        <select th:field="*{className}">
+            <option th:each="className: ${classNames}" th:text="${className.name}" th:value="${className.id}">
+            </option>
+        </select>
+    </div>
+    <button type="submit">Create</button>
+</form>
+</body>
+</html>

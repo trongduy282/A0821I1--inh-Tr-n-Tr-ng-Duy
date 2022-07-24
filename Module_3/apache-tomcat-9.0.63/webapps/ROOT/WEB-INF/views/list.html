@@ -1,41 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<div th:replace="~{common_student::headerStudent}">
-    <div style="background-color: blue" th:fragment="headerStudent">
-        <p>HEADER</p>
-        <p>-------------------------------------------</p>
-    </div>
-</div>
-<a href="/create">Create Song</a>
-<table width="700px" border="1">
-    <tr>
-        <th>No</th>
-        <th>Song ID</th>
-        <th>Song Name</th>
-        <th>Artist</th>
-        <th>Genre</th>
-        <th>Link</th>
-    </tr>
-    <tr th:each="song,loop : ${listSong}">
-        <td th:text="${loop.count}"></td>
-        <td th:text="${song.songId}"></td>
-        <td th:text="${song.songName}"></td>
-        <td th:text="${song.genre}"></td>
-        <td th:text="${song.link}"></td>
+<table>
+<tr>
+  <td>ID</td>
+  <td>Name</td>
+  <td>Point</td>
+  <td>Gender</td>
+  <td>Classroom</td>
+</tr>
+  <tr th:each="student :${student}">
+    <td th:text="${student.id}"></td>
+    <td>Name</td>
+    <td>Point</td>
+    <td>Gender</td>
+    <td>Classroom</td>
+  </tr>
 
-        <td>
-            <a th:href="@{/detail/{songId}(songId = ${song.songId})}">Detail</a>
-            <a th:href="@{/delete/{songId}(songId = ${song.songId})}">Delete</a>
-            <a th:href="@{/edit/{songId}(songId = ${song.songId})}">Edit</a>
-
-        </td>
-    </tr>
 </table>
-<div th:replace="~{common_student::footerStudent}"></div>
+
 </body>
 </html>

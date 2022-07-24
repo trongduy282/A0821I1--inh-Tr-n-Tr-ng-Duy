@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="/bootstrap-5.0.2/css/bootstrap.min.css">
+</head>
+<body>
+<form th:action="@{'/student/edit/' + ${student.id}}" method="post" th:object="${student}">
+    <div>
+        <label>Name</label>
+        <input type="text" th:field="*{name}">
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="text" th:field="*{email}">
+    </div>
+    <div>
+        <label>Gender</label>
+        <td>
+            <input type="radio" th:field="*{gender}" th:value="1" />
+            <label th:text="male" />
+            <input type="radio" th:field="*{gender}" th:value="0" />
+            <label th:text="female" />
+        </td>
+    </div>
+    <div>
+        <label>Phone Number</label>
+        <input type="text" th:field="*{phoneNumber}">
+    </div>
+    <div>
+        <label>Birthday</label>
+        <input type="date" th:field="*{birthday}">
+    </div>
+    <div>
+        <label>ClassName</label>
+        <select th:field="*{className}">
+            <option th:each="className: ${classNames}" th:text="${className.name}" th:value="${className.id}">
+            </option>
+        </select>
+    </div>
+    <button type="submit">Edit</button>
+</form>
+</body>
+</html>

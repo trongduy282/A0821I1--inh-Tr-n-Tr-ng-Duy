@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete blog</title>
+    <link rel="stylesheet" href="/bootstrap-5.0.2/css/bootstrap.min.css">
+</head>
+<body>
+<form th:action="@{'/student/delete/' + ${student.id}}" method="post">
+    <div>
+        <label>Name</label>
+        <span th:text="${student.name}"></span>
+    </div>
+    <div>
+        <label>Mail</label>
+        <span th:text="${student.email}"></span>
+    </div>
+    <div>
+        <label>Gender</label>
+        <span th:text="${student.gender}"></span>
+    </div>
+    <div>
+        <label>Phone Number</label>
+        <span th:text="${student.phoneNumber}"></span>
+    </div>
+    <div>
+        <label>Birthday</label>
+        <span th:text="${student.birthday}"></span>
+    </div>
+    <div>
+        <label>ClassName</label>
+        <span th:text="${student.className.name}"></span>
+    </div>
+    <button type="submit">Delete</button>
+</form>
+</body>
+</html>
