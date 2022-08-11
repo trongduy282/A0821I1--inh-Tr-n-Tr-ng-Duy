@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/template::head('Furama')}"></head>
+<body>
+<div id="wrap">
+
+    <div th:id="main">
+            <div th:replace="~{/template::nav}"></div>
+
+
+            <div >
+                    <h1 style="text-align: center; font-size: 50px; color: royalblue" >New Contract</h1>
+                    <form class="container" th:action="@{/contract/update}" method="post" th:object="${contract}" enctype="multipart/form-data">
+
+
+                        <div class="form-row">
+                            <div class="col-lg-6 mb-4">
+                                <label>Id <span class="red"> (*)</span> </label>
+                                <input th:field="*{idContract}" readonly  type="text" class="form-control">
+                                <span th:if="${#fields.hasErrors('idContract')}" th:errors="*{idContract}" class="red"></span>
+
+                            </div>
+<!--                            <div class="col-lg-6 mb-4">-->
+<!--                                <label>Name <span class="red"> (*)</span> </label>-->
+<!--                                <input th:field="*{customerName}"  type="text" class="form-control">-->
+<!--                                <span th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}" class="red"></span>-->
+<!--                            </div>-->
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="col-md-6 mb-4">
+                                <label>startDate</label>
+                                <input th:field="*{startDate}" name="customer_birthday" type="date" class="form-control"
+                                       placeholder="dd-MM-yyyy" min="1997-01-01" max="2030-12-31" required>
+                                <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"  class="red"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <label>endDate</label>
+                                <input th:field="*{endDate}" name="customer_birthday" type="date" class="form-control"
+                                       placeholder="dd-MM-yyyy" min="1997-01-01" max="2030-12-31" required>
+                                <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"  class="red"></span>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                        <div class="form-row">
+                            <div class="col-md-6 mb-4">
+                                <label>deposit</label>
+                                <input th:field="*{deposit}"  type="number" class="form-control" required>
+                                <span th:if="${#fields.hasErrors('deposit')}" th:errors="*{deposit}"  class="red"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <label>totalMoney</label>
+                                <input th:field="*{totalMoney}"  type="number" class="form-control" required>
+                                <span th:if="${#fields.hasErrors('totalMoney')}" th:errors="*{totalMoney}" class="red" ></span>
+
+                            </div>
+<!--                            <div class="col-lg-4 mb-4">-->
+<!--                                <label>Gender <span class="red"> (*)</span> </label>-->
+<!--                                <div class="form-line">-->
+<!--                                    <input type="radio" th:field="*{customerGender}" th:value="true" id="male" th:selected="*{customerGender}"  >-->
+<!--                                    <label  for="male"> Male</label>-->
+
+<!--                                    <input type="radio" th:field="*{customerGender}" th:value="false" id="female" th:selected="*{!customerGender}" >-->
+<!--                                    <label  for="female"> Female </label>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-lg-4 mb-4">
+                                <label>employee<span class="red"> (*)</span> </label>
+                                <select th:field="*{employee.employeeId}" class="form-control">
+                                    <option th:each="o : ${employees}"
+                                            th:value="${o.employeeId}"
+                                            th:text="${o.employeeName}"
+                                            th:selected="${ o.employeeId == (contract.employee.employeeId ) }" />
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 mb-4">
+                                <label>customer<span class="red"> (*)</span> </label>
+                                <select th:field="*{customer.customerId}" class="form-control">
+                                    <option th:each="o : ${customers}"
+                                            th:value="${o.customerId}"
+                                            th:text="${o.customerName}"
+                                            th:selected="${ o.customerId == (contract.customer.customerId ) }" />
+                                </select>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <label>service<span class="red"> (*)</span> </label>
+                                <select th:field="*{service.serviceId}" class="form-control">
+                                    <option th:each="o : ${services}"
+                                            th:value="${o.serviceId}"
+                                            th:text="${o.serviceName}"
+                                            th:selected="${ o.serviceId == (contract.service.serviceId ) }" />
+                                </select>
+                            </div>
+
+                        </div>
+
+
+
+                        <input type="submit" class="btn btn-outline-success my-2 my-lg-0" value="Save">
+                        <input type="button" class="btn btn-outline-success my-2 my-lg-0" value="Go Back" onclick="history.back()"/>
+
+
+                    </form>
+            </div>
+    </div>
+</div>
+
+<footer th:replace="~{/template::footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+/* Style the counter cards */
+
+.column {
+    float: left;
+    width: 25%;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding-left: 0px;
+    padding-right: 0px;
+    left: 0px;
+    right: 0px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 30px;
+    padding-right: 0px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+
+.card-title {
+    width: 100%;
+    font-weight: bold;
+    color: royalblue;
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+
+.card-body {
+    height: 100px;
+    min-height: 80px;
+    /*overflow-y: hidden;*/
+}
+
+/*Phan nhóm thanh phan trong 1 button o card*/
+.exam-container {
+    display: flex;
+    /*background: #ab7bb0;*/
+    padding: 4px;
+    margin: 4px;
+}
+
+.exam-element {
+    margin: 1px;
+    min-height: 40px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}

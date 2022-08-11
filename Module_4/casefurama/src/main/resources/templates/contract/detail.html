@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/template::head('Furama')}">
+</head>
+
+
+<body>
+<div id="wrap">
+    <div id="main"  >
+        <div th:replace="~{/template::nav}"></div>
+
+        <div class="row w-100 h-95" >
+<!--            <div class=" sidebar col-md-2 col-lg-2">-->
+<!--                <a class="active" href="#home"></a>-->
+<!--                <a th:href="@{/contract/create}">Them moi</a>-->
+<!--                <a href="#contact">Contact</a>-->
+<!--                <a href="#about">About</a>-->
+<!--            </div>-->
+
+            <div class="content col-md-12 col-lg-12 ">
+                <h1>Danh sach chi tiet hop dong</h1>
+
+                <div class="row">
+                    <div class="col-lg-3">
+
+                    </div>
+
+                    <div class="col-lg-9">
+                        <form  action="#" th:action="@{/contract/detail/search}"  method="get" class="form-inline container">
+
+
+                            <div class="form-group mb-2">
+                                <a th:href="@{/contract/detail/create(idDetail=${idDetail})}">
+                                    <button type="button"   class="btn btn-outline-info mr-1" >
+                                        Them
+                                    </button>
+                                </a>
+                             </div>
+
+                            <div class="form-group mb-2">
+                                <label for="nameSearch"  class="mr-1">Email</label>
+                                <input  type="search" name="nameSearch" id="nameSearch"   placeholder="name Search" class="form-control"  th:value="${nameSearch}"  >
+                            </div>
+
+                            <!--                                    <div class="form-group mx-sm-3 mb-2">-->
+                            <!--                                        <label for="typeSearch"  class="mr-1">Type</label>-->
+                            <!--                                        <select  class="form-control" name="typeSearch"  id="typeSearch"  >-->
+                            <!--                                            <option value=""   >All</option>-->
+                            <!--                                            <option th:each="o : ${customerTypes}"-->
+                            <!--                                                    th:value="${o.id}"-->
+                            <!--                                                    th:text="${o.name}"-->
+                            <!--                                                    th:selected="${ o.id == typeSearch }" />-->
+                            <!--                                        </select>-->
+                            <!--                                    </div>-->
+
+
+                            <!--                                    <div class="form-group mx-sm-3 mb-2">-->
+                            <!--                                        <label for="genderSearch"  class="mr-1">Gender</label>-->
+                            <!--                                        <select  class="form-control" name="genderSearch"  id="genderSearch"  >-->
+                            <!--                                            <option value="" >All</option>-->
+                            <!--                                            <option th:value="true" >Male</option>-->
+                            <!--                                            <option th:value="false" >Famale</option>-->
+
+                            <!--                                        </select>-->
+                            <!--                                    </div>-->
+
+                            <div class="form-group mx-sm-3 mb-2">
+                                <button class=" form-group btn btn-outline-success my-2 my-lg-0" type="submit">Search</button>
+
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+
+
+                <table class=" table table-striped table-bordered  "   >
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">idContract</th>
+                        <th scope="col">startDate</th>
+                        <th scope="col">endDate</th>
+                        <th scope="col">deposit</th>
+                        <th scope="col">totalMoney</th>
+                        <th scope="col">service</th>
+                        <th scope="col">customer</th>
+                        <th scope="col">employee</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr th:object="${contract}">
+                        <td th:text="*{idContract}"> </td>
+                        <td th:text="*{#dates.format(startDate, 'dd-MM-yyyy')}"></td>
+                        <td th:text="*{#dates.format(endDate, 'dd-MM-yyyy')}"></td>
+                        <td th:text="*{deposit}"></td>
+                        <td th:text="*{totalMoney}"></td>
+                        <td th:text="*{service.serviceName}"></td>
+                        <td th:text="*{customer.customerName}"></td>
+                        <td th:text="*{employee.employeeName}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table id="tablePhanTrang"   class=" table table-striped table-bordered  "   >
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Index</th>
+                        <th scope="col">id</th>
+                        <th scope="col">attachService</th>
+                        <th scope="col">cost</th>
+                        <th scope="col">unit</th>
+                        <th scope="col">status</th>
+                        <th scope="col">quantity</th>
+                        <th scope="col"> Sửa </th>
+                        <th scope="col"> Xóa </th>
+                    </tr>
+                    </thead>
+                    <tbody th:each="st, iterStat: ${contractDetailList}">
+                    <tr th:object="${st}">
+                        <td th:text="${iterStat.count}"></td>
+                        <td th:text="*{id}"> </td>
+
+                        <td th:text="*{attachService.name}"></td>
+                        <td th:text="*{attachService.cost}"></td>
+                        <td th:text="*{attachService.unit}"></td>
+                        <td th:text="*{attachService.status}"></td>
+                        <td th:text="*{quantity}"> </td>
+
+                        <td>
+                            <a th:href="@{/contract/detail/update(  idUpdate=*{id})}"><button    class="btn btn-outline-info" >
+                                Sửa
+                            </button></a>
+                        </td>
+                        <td>
+                            <button type="button"
+                                    th:onclick="showModelDelete( [[*{id}]], [[*{attachService.name}]])"
+                                    class="btn btn-outline-danger" data-toggle="modal"
+                                    data-target="#modalDelete">
+                                Xóa
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Pagination" th:if="${totalPages > 0}">
+                    <ul class="pagination justify-content-center font-weight-bold">
+                        <li class="page-item" th:classappend="${numbers eq 0} ? 'disabled'">
+                            <a class="page-link"
+                               th:href="@{/contract/detail(page=${numbers lt 2 ? 1 : numbers} ) } "
+                               aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item" th:classappend="${i eq numbers + 1} ? 'active'"
+                            th:each="i : ${#numbers.sequence( 1, totalPages, 1)}">
+                            <a class="page-link"
+                               th:href="@{/contract/detail( page=${i} ) }" th:text="${i}"
+                               th:title="${'Page '+ i}" data-toggle="tooltip"></a>
+                        </li>
+                        <li class="page-item" th:classappend="${numbers + 1 eq totalPages} ? 'disabled'">
+                            <a class="page-link"
+                               th:href="@{/contract/detail( page=${numbers + 2})}"
+                               aria-label="Next" title="Next Page" data-toggle="tooltip">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<footer th:replace="~{/template::footer}">
+
+</footer>
+
+
+<div class="modal fade" id="modalDelete" data-backdrop="static" data-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form method="post" th:action="@{/contract/detail/delete}" id="modelForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Thong Bao</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input hidden type="text" id="idDelete" name="idDelete">
+                    <span>Ban co muon xoa </span>
+                    <span class="text-danger" id="nameDelete"></span> khong?<span/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    function showModelDelete(id, name) {
+        document.getElementById("idDelete").value = id;
+        document.getElementById("nameDelete").innerText =  document.getElementById("idDelete").value + name;
+        // document.getElementById("modelForm").method = "post";
+    }
+</script>
+
+</body>
+</html>

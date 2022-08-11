@@ -1,0 +1,143 @@
+
+ html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+
+ table {
+     display: block;
+     max-width: -moz-fit-content;
+     max-width: fit-content;
+     margin: 0 auto;
+     overflow-x: auto !important;
+     white-space: nowrap;
+ }
+
+#wrap {
+      min-height: 100vh;
+      display:table;
+        height: 100vh;
+        width:100vw;
+      }
+
+#main { overflow:auto;
+        margin-bottom: 5vh; /* must be same height as the footer */
+        width: 100vw;
+        }
+
+ .red {
+    color: red;
+}
+
+.title {
+    font-family: 'Baskerville Old Face';
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h1{
+    text-align: center;
+    font-size: 50px;
+    color: royalblue;
+}
+
+
+/*navbar*/
+.navbar {
+    background-color: black;
+    /*padding: 10px 10px;*/
+    /*height: 15vh;*/
+    overflow: hidden;
+}
+
+.navbar-brand {
+    font-size: 45px !important;
+    font-weight: bold;
+    color: orange;
+}
+
+.navbar > * {
+    float: left;
+    color: black;
+    text-align: center;
+    padding-left: 12px;
+    text-decoration: none;
+    font-size: 22px;
+
+}
+
+
+/*Footer*/
+#footer {
+    position: relative;
+    margin-top: -5vh; /* negative value of footer height */
+    height: 5vh;
+    clear:both;
+    color: black;
+    text-align: center;
+    /*padding-left: 12px;*/
+    text-decoration: none;
+    font-size: 22px;
+    width: 100vw;}
+
+
+body:before {/* thanks to Maleika (Kohoutec)*/
+    content:"";
+    height:100vh;
+    float:left;
+    width:100vw;
+    margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+
+/*/////// sidebar bodycontent/////*/
+
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+.content {
+    /*position: absolute;*/
+    /*float: left;*/
+    /*margin-left: 10vw;*/
+    /*width: 90vw;*/
+    padding: 0px;
+    margin: 0px;
+    height: 90vh;
+}
+
+/* The side navigation menu */
+.sidebar {
+    /*position: absolute;*/
+    /*position: relative;*/
+    margin: 0;
+    padding: 0;
+    /*width: 10vw;*/
+    background-color: #f1f1f1;
+    /*position: fixed;*/
+    height: 90vh;
+}
+
+/* Sidebar links */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
