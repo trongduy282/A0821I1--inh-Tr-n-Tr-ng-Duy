@@ -7,44 +7,58 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="text-success text-center">Film Management</h1>
-    <a href="/create" class="btn btn-success">Create</a>
+    <h1 class="text-success text-center">Danh Sách Tin Tức</h1>
+    <a href="/create" class="btn btn-success">Thêm Tin</a>
     <form th:action="@{'/list'}" method="get">
-        <input type="text" hidden th:value="${films.number}" name="page">
+        <input type="text" hidden th:value="${newss.number}" name="page">
         <!--        <input type="text" hidden th:value="${sortBy}" name="sortBy">-->
         <!--        <select name="searchBy">-->
         <!--            <option value="name">Tên</option>-->
         <!--            <option value="email">Email</option>-->
         <!--        </select>-->
-        <input type="text" name="searchValName" class="form-control" placeholder="Nhập tên phim">
-        <input type="text" name="searchValDirector" class="form-control" placeholder="Nhập Đạo Diễn"> &nbsp;
-        <input type="text" name="searchValCategory" class="form-control" placeholder="Nhập Thể Loại">
+        <input type="text" name="searchValName" class="form-control" placeholder="Nhập Tiêu Đề">
+<!--        <input type="text" name="searchValDirector" class="form-control" placeholder="Nhập Đạo Diễn"> &nbsp;-->
+        <input type="text" name="searchValCategory" class="form-control" placeholder="Nhập Danh Mục">
 <!--        <input style = "width: 25%; float:left" name="priceSearch" class="form-control" placeholder="Nhập giá"> &nbsp;-->
         <button type="submit">Search</button>
     </form>
     <table class="table">
         <tr>
             <th>STT</th>
-            <th>Tên phim</th>
-            <th>Đạo diễn</th>
-            <th>Ngày khởi chiến</th>
-            <th>Giá tiền</th>
-            <th>Thể loại</th>
+            <th>Tiêu Đề</th>
+            <th>Danh Mục</th>
+            <th>Ngày Đăng Tin</th>
+            <th>Phóng Viên</th>
+<!--            <th>Thể loại</th>-->
             <th>Action</th>
         </tr>
-        <tr th:each="film, status : ${films}">
-            <td th:text="${status.count + films.number * 3}"></td>
-            <td th:text="${film.name}"></td>
-            <td th:text="${film.director}"></td>
-            <td th:text="${film.createDate}"></td>
-            <td th:text="${film.Price}"></td>
-            <td th:text="${film.Category.name}"></td>
+        <tr th:each="news, status : ${newss}">
+            <td th:text="${status.count + newss.number * 3}"></td>
+            <td th:text="${news.title}"></td>
+            <td th:text="${news.Category.name}"></td>
+<!--            <td th:text="${news.createDate}"></td>-->
+            <td th:text="*{#dates.format(news.createDate, 'yyyy-MM-dd')}"></td>
+
+            <td th:text="${news.artist}"></td>
+
+<!--            <td th:text="${news.Price}"></td>-->
+
             <td>
-                <a th:href="@{'/edit/{id}'(id=${film.id}, page=${films.number})}" class="btn btn-warning">Edit</a>
+<!--                <a th:href="@{'/edit/{id}'(id=${news.id}, page=${newss.number})}" class="btn btn-warning">Chi Tiết</a>-->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm1"
+                        th:data-id="${news.id}"
+                        th:data-title="${news.title}"
+                        th:data-category="${news.Category.name}"
+                        th:data-content="${news.content}"
+                        th:data-createDate="${news.createDate}"
+                        th:data-artist="${news.artist}"
+                >
+                    Chi Tiết
+                </button>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm"
-                        th:data-id="${film.id}"
-                        th:data-name="${film.name}"
-                        th:data-director="${film.director}"
+                        th:data-id="${news.id}"
+                        th:data-title="${news.title}"
+                        th:data-artist="${news.artist}"
                 >
                     Delete
                 </button>
@@ -53,15 +67,15 @@
     </table>
 
     <div>
-        <a th:href="@{'/'(page = ${films.number - 1})}"
-           th:if="${films.hasPrevious()}">Previous</a>
+        <a th:href="@{'/'(page = ${newss.number - 1})}"
+           th:if="${newss.hasPrevious()}">Previous</a>
         <!--            Trang hiện tại                          -->
-        <span th:text="${films.number + 1}"></span>
+        <span th:text="${newss.number + 1}"></span>
         /
-        <span th:text="${films.totalPages}"></span>
+        <span th:text="${newss.totalPages}"></span>
         <!--            Trang sau                             -->
-        <a th:href="@{'/'(page = ${films.number + 1})}"
-           th:if="${films.hasNext()}">Next</a>
+        <a th:href="@{'/'(page = ${newss.number + 1})}"
+           th:if="${newss.hasNext()}">Next</a>
     </div>
 
 
@@ -74,7 +88,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn xóa film không?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn xóa news không?</h5>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -82,14 +96,42 @@
                         <!--                        <img src="" alt="Image lỗi" class="product-image">-->
                         <!--                    </div>-->
                         <div class="col-8">
-                            <p class="film-name"></p>
-                            <p class="film-director"></p>
+                            <p class="news-title"></p>
+                            <p class="news-artist"></p>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
                     <a type="button" href="" class="btn btn-primary">Xác nhận</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirm1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Chi Tiết?</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <!--                    <div class="col-4">-->
+                        <!--                        <img src="" alt="Image lỗi" class="product-image">-->
+                        <!--                    </div>-->
+                        <div class="col-8">
+                            <p class="news-title"></p>
+                            <p class="news-category"></p>
+                            <p class="news-content"></p>
+                            <p class="news-createDate"></p>
+                            <p class="news-artist"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+<!--                    <a type="button" href="" class="btn btn-primary">Đóng</a>-->
                 </div>
             </div>
         </div>
@@ -113,9 +155,19 @@
     $('#confirm').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var modal = $(this)
-        modal.find('.film-name').text('Tên film:' + button.data('name'));
-        modal.find('.film-director').text('Đạo diễn' + button.data('director'));
+        modal.find('.news-title').text('Tên news: ' + button.data('title'));
+        modal.find('.news-artist').text('Phóng viên ' + button.data('artist'));
 
         modal.find('.modal-footer a').attr("href", "/delete/" + button.data('id'));
+    });
+    $('#confirm1').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var modal = $(this)
+        modal.find('.news-title').text('Tiêu Đề : ' + button.data('title'));
+        modal.find('.news-category').text('Danh Mục: ' + button.data('Category.name'));
+        modal.find('.news-artist').text('Phóng Viên : ' + button.data('artist'));
+        modal.find('.news-createDate').text('Ngày Đăng Tin: ' + button.data('createDate'));
+        modal.find('.news-content').text('Nội Dung: ' + button.data('content'));
+        // modal.find('.modal-footer a').attr("href", "/delete/" + button.data('id'));
     });
 </script>

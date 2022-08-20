@@ -7,9 +7,9 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="text-success text-center">Edit film</h1>
+    <h1 class="text-success text-center">Edit news</h1>
     <a href="/" class="btn btn-success">Back</a>
-    <form th:action="@{'/edit'(id=${film.id}, page=${page})}" method="post" th:object="${film}">
+    <form th:action="@{'/edit'(id=${news.id}, page=${page})}" method="post" th:object="${news}">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Tên</label>
             <div class="col-sm-10">

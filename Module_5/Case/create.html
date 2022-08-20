@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap413/css/bootstrap.css">
+</head>
+<body>
+<div class="p-5">
+    <a class="text-danger text-center d-block text-decoration-none fw-bold fs-1" >
+        <span >Create House</span>
+        <!--        <span >Create Villa</span>-->
+        <!--        <span >Create Room</span>-->
+    </a>
+
+    <form>
+        <div class="form-group row mb-2">
+            <span class="form-label col-2 fw-bold">Tên:</span>
+            <div class="col-10">
+                <input type="text" class="form-control" >
+            </div>
+        </div>
+
+        <div class="form-group row mb-2">
+            <span class="form-label col-2 fw-bold">Diện tích sử dụng:</span>
+            <div class="col-10">
+                <input type="text" class="form-control" >
+            </div>
+        </div>
+
+        <div class="form-group row mb-2">
+            <span class="form-label col-2 fw-bold">Giá tiền:</span>
+            <div class="col-10">
+                <input type="text" class="form-control" >
+            </div>
+        </div>
+
+        <div class="form-group row mb-2">
+            <span class="form-label col-2 fw-bold">Số người tối đa:</span>
+            <div class="col-10">
+                <input type="text" class="form-control" >
+            </div>
+        </div>
+
+        <div *ngIf="type_facility === 'house' || type_facility === 'villa'">
+            <div class="form-group row mb-2">
+                <span class="form-label col-2 fw-bold">Mô tả:</span>
+                <div class="col-10">
+                    <input type="text" class="form-control" >
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <span class="form-label col-2 fw-bold">Số tầng:</span>
+                <div class="col-10">
+                    <input type="text" class="form-control" >
+                </div>
+            </div>
+
+            <div class="form-group row mb-2" >
+                <span class="form-label col-2 fw-bold">Diện tích hồ bơi:</span>
+                <div class="col-10">
+                    <input type="text" class="form-control" >
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <span class="form-label col-2 fw-bold">Tiêu chuẩn:</span>
+                <div class="col-10">
+                    <select class="form-select">
+                        <option disabled selected>Vui lòng chọn kiểu thuê</option>
+                        <option >1 sao</option>
+                        <option >2 sao</option>
+                        <option >3 sao</option>
+                        <option>4 sao</option>
+                        <option>5 sao</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group row mb-2" >
+            <span class="form-label col-2 fw-bold">Dịch vụ miễn phí:</span>
+            <div class="col-10">
+        <span>
+            <div class="w-25 d-inline-block">
+              <input type="checkbox">
+              <span class="mx-2">Wifi</span>
+            </div>
+            <div class="w-25 d-inline-block">
+              <input type="checkbox">
+              <span class="mx-2">Tivi</span>
+            </div>
+          </span>
+            </div>
+        </div>
+
+
+        <div class="row mb-2">
+            <span class="col-2 fw-bold">Kiểu thuê:</span>
+            <div class="col-10">
+                <select class="form-select">
+                    <option  >Chọn kiểu thuê</option>
+                    <option >Theo ngày</option>
+                    <option >Theo tháng</option>
+                    <option >Theo năm</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="d-flex align-items-end justify-content-end">
+            <button type="submit" class="btn btn-success m-5">Save</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

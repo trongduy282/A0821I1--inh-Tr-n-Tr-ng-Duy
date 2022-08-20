@@ -20,5 +20,5 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category")
-    private List<Film> films;
+    private List<News> news;
 }

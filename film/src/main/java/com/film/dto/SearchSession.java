@@ -1,33 +1,24 @@
 package com.film.dto;
 
 public class SearchSession {
-    private String searchValName;
-    private String searchValDirector;
+    private String searchValTitle;
+//    private String searchValDirector;
     private String searchValCategory;
 
     public SearchSession() {
     }
 
-    public SearchSession(String searchValName, String searchValDirector, String searchValCategory) {
-        this.searchValName = searchValName;
-        this.searchValDirector = searchValDirector;
+    public SearchSession(String searchValTitle, String searchValCategory) {
+        this.searchValTitle = searchValTitle;
         this.searchValCategory = searchValCategory;
     }
 
-    public String getSearchValName() {
-        return searchValName;
+    public String getSearchValTitle() {
+        return searchValTitle;
     }
 
-    public void setSearchValName(String searchValName) {
-        this.searchValName = searchValName;
-    }
-
-    public String getSearchValDirector() {
-        return searchValDirector;
-    }
-
-    public void setSearchValDirector(String searchValDirector) {
-        this.searchValDirector = searchValDirector;
+    public void setSearchValTitle(String searchValTitle) {
+        this.searchValTitle = searchValTitle;
     }
 
     public String getSearchValCategory() {
