@@ -1,13 +1,15 @@
 <h1>Rating bar</h1>
-<div class="row container">
-  <div *ngFor="let i of numbers">
-    <button  *ngIf="i<=rate" style="background-color: pink">
-<!--      class="unit d-flex justify-content-center"-->
-      {{i}}
-    </button>
-    <button  *ngIf="i>rate" style="background-color: white">
-<!--      class="unit d-flex justify-content-center"-->
-      {{i}}
-    </button>
-  </div>
+<div class="container, row">
+<div *ngFor="let number of numbers">
+  <button *ngIf="number <= rating" style="display:flex; size:50px; background-color: green; justify-content: center;
+  align-items: center;
+  margin-right: 20px;">
+    {{number}}
+  </button>
+  <button *ngIf="number > rating" style="display:flex; size:50px; background-color: white; justify-content: center;
+  align-items: center;
+  margin-right: 20px;">
+    {{number}}
+  </button>
+</div>
 </div>
