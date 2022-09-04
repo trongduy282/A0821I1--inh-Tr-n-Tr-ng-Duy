@@ -1,0 +1,51 @@
+<h2>Today's article</h2>
+<hr>
+<div *ngFor="let art of articles">
+  <a href="{{art.url}}" target="_blank">{{art.title}}</a>: <app-like></app-like>
+</div>
+<hr>
+<div>
+  <h2>Article Information</h2>
+  <table >
+    <tr>
+      <td>Title:</td>
+      <td><textarea [(ngModel)]="article.title" cols="70"></textarea></td>
+    </tr>
+    <tr>
+      <td>Url:</td>
+      <td>
+        <textarea [(ngModel)]="article.url" cols="70"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button style="float: right" (click)="addNewArticle()">Add</button></td>
+    </tr>
+  </table>
+</div>
+<hr>
+<!-- Button trigger modal -->
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">-->
+<!--  Launch demo modal-->
+<!--</button>-->
+
+<!--&lt;!&ndash; Modal &ndash;&gt;-->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+<!--        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--          <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        ...-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--        <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

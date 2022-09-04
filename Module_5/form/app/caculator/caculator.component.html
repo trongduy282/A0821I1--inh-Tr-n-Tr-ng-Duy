@@ -1,0 +1,13 @@
+<h1>Máy Tính Đơn Giản</h1>
+<input #number1 type="text">
+<select #pheptoan>
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+</select>
+<input #number2 type="text">
+
+<button (click)="tinhToan(number1.value,number2.value,pheptoan.value)">Tính Toán</button>
+
+{{ketQua}}
