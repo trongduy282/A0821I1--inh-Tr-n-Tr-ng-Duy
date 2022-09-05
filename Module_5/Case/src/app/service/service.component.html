@@ -5,102 +5,72 @@
 <!--  <title>Title</title>-->
 <!--&lt;!&ndash;  <link rel="stylesheet" href="bootstrap413/css/bootstrap.css">&ndash;&gt;-->
 <!--</head>-->
-<body>
-<div class="d-flex justify-content-between">
-  <h1>Danh sách dịch vụ</h1>
-<!--  <div class="d-flex">-->
-<!--    <input type="text" class="form-control mx-3" placeholder="Tìm kiến theo tên" style="width: 400px">-->
-<!--    <button class="btn btn-outline-success">Search</button>-->
-<!--  </div>-->
-</div>
-<div>
-  <button class="btn btn-success my-4" data-toggle="modal" data-target="#modalCreate">Create</button>
-  <div class="row">
-    <div class="col-3 mb-3">
-<!--      *ngFor="let facility of facilities | paginate: { itemsPerPage: 8, currentPage: p }; index as i"-->
-      <div class="card">
-        <img class="card-img-top" src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" alt="Card image cap" style="height: 200px">
-        <div class="card-body">
-          <h5 class="card-title">Deluxe Room</h5>
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="card-text">Size: 20m<sup>2</sup></span>
-            <button class="btn btn-primary d-flex align-items-center" >
-<!--              (click)="navigateToComponentDetail(i)"-->
-              <i class="ti-info-alt mx-2"></i>
-              <span>Detail</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-3 mb-3" >
-<!--      *ngFor="let facility of facilities | paginate: { itemsPerPage: 8, currentPage: p }; index as i"-->
-      <div class="card">
-        <img class="card-img-top" src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" alt="Card image cap" style="height: 200px">
-        <div class="card-body">
-          <h5 class="card-title">Deluxe Room</h5>
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="card-text">Size: 20m<sup>2</sup></span>
-            <button class="btn btn-primary d-flex align-items-center">
-<!--              (click)="navigateToComponentDetail(i)-->
-              <i class="ti-info-alt mx-2"></i>
-              <span>Detail</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-3 mb-3">
-<!--      *ngFor="let facility of facilities | paginate: { itemsPerPage: 8, currentPage: p }; index as i-->
-      <div class="card">
-        <img class="card-img-top" src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" alt="Card image cap" style="height: 200px">
-        <div class="card-body">
-          <h5 class="card-title">Deluxe Room</h5>
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="card-text">Size: 20m<sup>2</sup></span>
-            <button class="btn btn-primary d-flex align-items-center" >
-<!--              (click)="navigateToComponentDetail(i)"-->
-              <i class="ti-info-alt mx-2"></i>
-              <span>Detail</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <h1>Danh sách dịch vụ</h1>
+    <!--  <div class="d-flex">-->
+    <!--    <input type="text" class="form-control mx-3" placeholder="Tìm kiến theo tên" style="width: 400px">-->
+    <!--    <button class="btn btn-outline-success">Search</button>-->
+    <!--  </div>-->
   </div>
-  <div class="d-flex align-items-end justify-content-end">
-<!--    <pagination-controls></pagination-controls>-->
-<!--    (pageChange)="p = $event"-->
-  </div>
-</div>
-
-<!-- Modal create -->
-<div class="modal fade" id="modalCreate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Vui lòng chọn dịch vụ cần tạo mới?</h5>
-      </div>
-      <div class="modal-body">
-        <form>
-<!--          [formGroup]="formChooseFacilityCreate"-->
-          <input type="radio" id="house" value="house" formControlName="type_facility">
-          <label for="house" class="mx-2">House</label><br>
-          <input type="radio" id="room" value="room" formControlName="type_facility">
-          <label for="room" class="mx-2">Room</label><br>
-          <input type="radio" id="villa" value="villa" formControlName="type_facility">
-          <label for="villa" class="mx-2">Villa</label>
-
-          <div class="d-flex justify-content-end">
-            <button type="button" class="btn btn-secondary mx-2" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" >Next</button>
-<!--            (click)="create()"-->
+  <div>
+    <button class="btn btn-success my-4" data-toggle="modal" data-target="#modalCreate">Create</button>
+    <div class="row">
+<!--      <div class="col-3 mb-3">-->
+        <!--      *ngFor="let facility of facilities | paginate: { itemsPerPage: 8, currentPage: p }; index as i"-->
+        <div class="card" *ngFor="let facility of facilities">
+          <img class="card-img-top" src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" alt="Card image cap" style="height: 200px">
+          <div class="card-body">
+            <h5 class="card-title">{{facility.serviceName}}</h5>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="card-text">{{facility.area}}</span>
+              <button class="btn btn-primary d-flex align-items-center" >
+                <i class="bi bi-info-circle"></i>
+                <span>Detail</span>
+              </button>
+            </div>
           </div>
-
-        </form>
-      </div>
+        </div>
+<!--      </div>-->
+<!--      <div class="col-3 mb-3" >-->
+<!--        <div class="card">-->
+<!--          <img class="card-img-top" src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" alt="Card image cap" style="height: 200px">-->
+<!--          <div class="card-body">-->
+<!--            <h5 class="card-title">Deluxe Room</h5>-->
+<!--            <div class="d-flex justify-content-between align-items-center">-->
+<!--              <span class="card-text">Size: 20m<sup>2</sup></span>-->
+<!--              <button class="btn btn-primary d-flex align-items-center">-->
+<!--                &lt;!&ndash;              (click)="navigateToComponentDetail(i)&ndash;&gt;-->
+<!--                <i class="bi bi-info-circle"></i>-->
+<!--                <span>Detail</span>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-3 mb-3">-->
+<!--        &lt;!&ndash;      *ngFor="let facility of facilities | paginate: { itemsPerPage: 8, currentPage: p }; index as i&ndash;&gt;-->
+<!--        <div class="card">-->
+<!--          <img class="card-img-top" src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" alt="Card image cap" style="height: 200px">-->
+<!--          <div class="card-body">-->
+<!--            <h5 class="card-title">Deluxe Room</h5>-->
+<!--            <div class="d-flex justify-content-between align-items-center">-->
+<!--              <span class="card-text">Size: 20m<sup>2</sup></span>-->
+<!--              <button class="btn btn-primary d-flex align-items-center" >-->
+<!--                &lt;!&ndash;              (click)="navigateToComponentDetail(i)"&ndash;&gt;-->
+<!--                <i class="bi bi-info-circle"></i>-->
+<!--                <span>Detail</span>-->
+<!--              </button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+    <div class="d-flex align-items-end justify-content-end">
     </div>
   </div>
 </div>
-</body>
+</div>
+
 <!--</html>-->
