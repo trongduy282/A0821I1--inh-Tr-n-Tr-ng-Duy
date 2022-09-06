@@ -27,15 +27,15 @@
       <th>Loại khách hàng</th>
       <th class="text-center">Action</th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>Duy</td>
-      <td>Nam</td>
-      <td>1244</td>
-      <td>11234252</td>
-      <td>duy@email.com</td>
-      <td>cmt8</td>
-      <td>vip</td>
+    <tr *ngFor="let customer of customers">
+      <td>{{customer.id}}</td>
+      <td>{{customer.name}}</td>
+      <td>{{customer.gender}}</td>
+      <td>{{customer.identity}}</td>
+      <td>{{customer.phone_number}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.address}}</td>
+      <td>{{customer.customer_type}}</td>
       <td>
         <button class="btn btn-warning">Edit</button>
         <button class="btn btn-danger">Delete</button>
@@ -45,25 +45,25 @@
 </div>
 
 <!-- Modal delete -->
-<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn xoá khách hàng này không?</h5>
-      </div>
-      <div class="modal-body">
-        <table class="w-100">
+<!--<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog"-->
+<!--     aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--  <div class="modal-dialog" role="document">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn xoá khách hàng này không?</h5>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        <table class="w-100">-->
 
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
+<!--        </table>-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>-->
+<!--        <button type="button" class="btn btn-primary" data-dismiss="modal">Delete</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
 
 </body>
 <!--</html>-->

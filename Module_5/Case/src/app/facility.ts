@@ -1,5 +1,5 @@
 export interface Facility {
-  serviceName :string;
+  serviceName: string;
   area: string;
   rentCost: string;
   maxPerson: string;
