@@ -1,0 +1,14 @@
+<h1>Từ Điển</h1>
+<table>
+  <tr>
+    <td>Word</td>
+  </tr>
+  <tr *ngFor="let word of words">
+<!--    ; index as i-->
+    <td><a [routerLink]="['/dictionary', word?.id]">{{word?.word}}</a></td>
+    <router-outlet></router-outlet>
+<!--    <td>{{word.mean}}</td>-->
+<!--    <a [routerLink]="['/', word.id]">{{word.mean}}</a>-->
+  </tr>
+</table>
+
