@@ -1,0 +1,105 @@
+<div class="p-5">
+  <a class="text-danger text-center d-block text-decoration-none fw-bold fs-1" routerLink="/facilities">
+    <span *ngIf="type_facility === 'house'">Create House</span>
+    <span *ngIf="type_facility === 'villa'">Create Villa</span>
+    <span *ngIf="type_facility === 'room'">Create Room</span>
+  </a>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div class="form-group row mb-2">
+      <span class="form-label col-2 fw-bold">Tên:</span>
+      <div class="col-10">
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+    </div>
+
+    <div class="form-group row mb-2">
+      <span class="form-label col-2 fw-bold">Diện tích sử dụng:</span>
+      <div class="col-10">
+        <input type="text" class="form-control" formControlName="area">
+      </div>
+    </div>
+
+    <div class="form-group row mb-2">
+      <span class="form-label col-2 fw-bold">Giá tiền:</span>
+      <div class="col-10">
+        <input type="text" class="form-control" formControlName="cost">
+      </div>
+    </div>
+
+    <div class="form-group row mb-2">
+      <span class="form-label col-2 fw-bold">Số người tối đa:</span>
+      <div class="col-10">
+        <input type="text" class="form-control" formControlName="max_people">
+      </div>
+    </div>
+
+    <div *ngIf="type_facility === 'house' || type_facility === 'villa'">
+      <div class="form-group row mb-2">
+        <span class="form-label col-2 fw-bold">Mô tả:</span>
+        <div class="col-10">
+          <input type="text" class="form-control" formControlName="description">
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <span class="form-label col-2 fw-bold">Số tầng:</span>
+        <div class="col-10">
+          <input type="text" class="form-control" formControlName="number_floor">
+        </div>
+      </div>
+
+      <div class="form-group row mb-2" *ngIf="type_facility === 'villa'">
+        <span class="form-label col-2 fw-bold">Diện tích hồ bơi:</span>
+        <div class="col-10">
+          <input type="text" class="form-control" formControlName="area_pool">
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <span class="form-label col-2 fw-bold">Tiêu chuẩn:</span>
+        <div class="col-10">
+          <select formControlName="standard" class="form-select">
+            <option [ngValue]="null" disabled selected>Vui lòng chọn kiểu thuê</option>
+            <option [ngValue]="'1 sao'">1 sao</option>
+            <option [ngValue]="'2 sao'">2 sao</option>
+            <option [ngValue]="'3 sao'">3 sao</option>
+            <option [ngValue]="'4 sao'">4 sao</option>
+            <option [ngValue]="'5 sao'">5 sao</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group row mb-2" *ngIf="type_facility === 'room'">
+      <span class="form-label col-2 fw-bold">Dịch vụ miễn phí:</span>
+      <div class="col-10">
+        <span *ngFor="let fs of free_services; index as i">
+            <div class="w-25 d-inline-block">
+              <input type="checkbox" (change)="changeSelectedFreeServices(i)">
+              <span class="mx-2">{{fs.name}}</span>
+            </div>
+          </span>
+      </div>
+    </div>
+
+
+    <div class="row mb-2">
+      <span class="col-2 fw-bold">Kiểu thuê:</span>
+      <div class="col-10">
+        <select formControlName="rent_type" class="form-select">
+          <option [ngValue]="null" disabled selected>Chọn kiểu thuê</option>
+          <option *ngFor="let rt of rent_types" [ngValue]="rt">
+            {{rt.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="d-flex align-items-end justify-content-end">
+      <button type="submit" class="btn btn-success m-5">Save</button>
+    </div>
+  </form>
+</div>

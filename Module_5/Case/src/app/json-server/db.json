@@ -1,0 +1,255 @@
+{
+  "customer": [
+    {
+      "name": "nguyen",
+      "gender": false,
+      "identity": "201857428888",
+      "phone_number": "0912345567",
+      "email": "toan@dev.com",
+      "address": "Da Nang",
+      "customer_type": {
+        "id": 4,
+        "name": "Silver"
+      },
+      "id": 5
+    },
+    {
+      "name": "Quoc Viet",
+      "gender": true,
+      "identity": 201857426,
+      "phone_number": "0794546528",
+      "email": "viet@gmail.com",
+      "address": "Da Nang",
+      "customer_type": {
+        "id": 4,
+        "name": "Silver"
+      },
+      "id": 6
+    },
+    {
+      "id": 7,
+      "name": "Nguyễn Toàn",
+      "gender": true,
+      "identity": 201857426,
+      "phone_number": "0794546528",
+      "email": "toan@gmail.com",
+      "address": "Da Nang",
+      "customer_type": {
+        "id": 5,
+        "name": "Member"
+      }
+    }
+  ],
+  "customer_types": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "rent_types": [
+    {
+      "id": 1,
+      "name": "Năm"
+    },
+    {
+      "id": 2,
+      "name": "Tháng"
+    },
+    {
+      "id": 3,
+      "name": "Ngày"
+    },
+    {
+      "id": 4,
+      "name": "Giờ"
+    }
+  ],
+  "attach_services": [
+    {
+      "id": 1,
+      "name": "Massage",
+      "unit": "1 Người",
+      "price": 50000
+    },
+    {
+      "id": 2,
+      "name": "Karaoke",
+      "unit": "1 giờ",
+      "price": 200000
+    },
+    {
+      "id": 3,
+      "name": "Food",
+      "unit": "1 lượt ăn",
+      "price": 150000
+    },
+    {
+      "id": 4,
+      "name": "Drink",
+      "unit": "1 đồ uống",
+      "price": 20000
+    },
+    {
+      "id": 5,
+      "name": "Wifi",
+      "unit": "Unlimited",
+      "price": 0
+    },
+    {
+      "id": 6,
+      "name": "Đồ dùng tiện nghi",
+      "unit": "Unlimited",
+      "price": 0
+    },
+    {
+      "id": 7,
+      "name": "Hồ bơi",
+      "unit": "Unlimited",
+      "price": 0
+    }
+  ],
+  "houses": [
+    {
+      "id": 3,
+      "name": "House 1",
+      "area": "111",
+      "cost": "1000000",
+      "max_people": "2",
+      "rent_type": {
+        "id": 2,
+        "name": "Tháng"
+      },
+      "standard": "2 sao",
+      "description": "House 1",
+      "number_floor": "1"
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Room 1",
+      "area": 10,
+      "cost": 10,
+      "max_people": 10,
+      "rent_type": {
+        "id": 1,
+        "name": "Năm"
+      },
+      "free_services": [
+        {
+          "id": 5,
+          "name": "Wifi",
+          "unit": "Unlimited",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Room 2",
+      "area": "123",
+      "cost": "123",
+      "max_people": "123",
+      "rent_type": {
+        "id": 4,
+        "name": "Giờ"
+      },
+      "free_services": [
+        {
+          "id": 5,
+          "name": "Wifi",
+          "unit": "Unlimited",
+          "price": 0
+        },
+        {
+          "id": 6,
+          "name": "Đồ dùng tiện nghi",
+          "unit": "Unlimited",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Room 3",
+      "area": "250",
+      "cost": "2500",
+      "max_people": "10",
+      "rent_type": {
+        "id": 3,
+        "name": "Ngày"
+      },
+      "free_services": [
+        {
+          "id": 5,
+          "name": "Wifi",
+          "unit": "Unlimited",
+          "price": 0
+        }
+      ]
+    }
+  ],
+  "villas": [
+    {
+      "id": 1,
+      "name": "Villa 1",
+      "area": 10,
+      "cost": 10,
+      "max_people": 10,
+      "rent_type": {
+        "id": 1,
+        "name": "Năm"
+      },
+      "standard": "1 sao",
+      "description": "New build",
+      "number_floor": 2,
+      "area_pool": 15
+    },
+    {
+      "id": 2,
+      "name": "Villa 2",
+      "area": 10,
+      "cost": 10,
+      "max_people": 10,
+      "rent_type": {
+        "id": 1,
+        "name": "Năm"
+      },
+      "standard": "1 sao",
+      "description": "New build",
+      "number_floor": 2,
+      "area_pool": 15
+    },
+    {
+      "id": 3,
+      "name": "villa 1",
+      "area": "111",
+      "cost": "222",
+      "max_people": "12",
+      "rent_type": {
+        "id": 2,
+        "name": "Tháng"
+      },
+      "standard": "2 sao",
+      "description": "111",
+      "number_floor": "1",
+      "area_pool": "22"
+    }
+  ]
+}

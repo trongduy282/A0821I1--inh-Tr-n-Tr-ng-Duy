@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Customer} from '../customer';
+import {CustomerServiceService} from '../customer/customer-service.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -7,17 +8,34 @@ import {Customer} from '../customer';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-  customers: Customer[] = [
-    // tslint:disable-next-line:max-line-length
-    {id: '1', name: 'Duy', gender: true, identity: '1', phone_number: '079123456', email: 'duydinh@gmail.com', address: 'da nang', customer_type: 'Villa'},
-    // tslint:disable-next-line:max-line-length
-    {id: '2', name: 'Hoang', gender: false, identity: '2', phone_number: '079123457', email: 'hoang@gmail.com', address: 'tam ky', customer_type: 'House'},
-    // tslint:disable-next-line:max-line-length
-    {id: '3', name: 'Viet', gender: true, identity: '3', phone_number: '079123458', email: 'viet@gmail.com', address: 'hue', customer_type: 'Room'}
-  ];
-  constructor() { }
+  customers: Customer[] ;
+  customerDelete: Customer;
+  p = 1;
+  searchText = '';
+  constructor(private customerService: CustomerServiceService) { }
 
   ngOnInit(): void {
+    this.getAll();
+  }
+  getAll() {
+    this.customerService.findAll().subscribe(
+      customers => this.customers = customers
+    );
+  }
+  findCustomerDelete(id: number) {
+    this.customerDelete = this.customers.find(c => c.id === id);
   }
 
+  delete() {
+    this.customerService.deleteById(this.customerDelete.id).subscribe(
+      next => {
+        this.getAll();
+      }
+    );
+  }
+  search() {
+    this.customerService.search(this.searchText).subscribe(
+      customers => this.customers = customers
+    );
+  }
 }

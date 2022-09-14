@@ -6,66 +6,126 @@
 <!--</head>-->
 <body>
 <div class="p-5">
-  <a class="text-danger text-center d-block text-decoration-none fw-bold fs-1">Create Customer</a>
-  <form >
-    <div class="form-group row mb-2">
-      <span class="form-label col-2 fw-bold">Tên:</span>
-      <div class="col-10">
-        <input type="text" class="form-control" value="Duy">
+  <h1 class="text-center text-danger" *ngIf="id === 0">Customer Create</h1>
+  <h1 class="text-center text-danger" *ngIf="id > 0">Customer Edit</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" #f="ngForm">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Tên</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="name">
       </div>
     </div>
-    <div class="form-group row mb-2">
-      <span class="form-label col-2 fw-bold">Ngày sinh:</span>
-      <div class="col-10">
-        <input type="date" class="form-control" value="2000-01-01">
-      </div>
-    </div>
-    <div class="form-group row mb-2">
-      <span class="form-label col-2 fw-bold">Giới tính:</span>
-      <div class="col-10">
-        <select class="form-select">
-          <option >Vui lòng chọn giới tính</option>
-          <option selected>Nam</option>
-          <option >Nữ</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group row mb-2">
-      <span class="form-label col-2 fw-bold">CMND/CCCD:</span>
-      <div class="col-10">
-        <input type="text" class="form-control" value="123456789">
-      </div>
-    </div>
-    <div class="form-group row mb-2">
-      <span class="form-label col-2 fw-bold">Số điện thoại:</span>
-      <div class="col-10">
-        <input type="text" class="form-control" value="0123456789">
-      </div>
-    </div>
-    <div class="form-group row mb-2">
-      <span class="form-label col-2 fw-bold">Email:</span>
-      <div class="col-10">
-        <input type="text" class="form-control" value="duy@gmail.com">
-      </div>
-    </div>
-    <div class="form-group row mb-2">
-      <span class="form-label col-2 fw-bold">Địa chỉ:</span>
-      <div class="col-10">
-        <input type="text" class="form-control" value="Đà Nẵng">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.name">
+          <div *ngIf="name.hasError(validation.type) && (name.touched || f.submitted)"
+               class="text-danger">{{validation.message}}</div>
+        </div>
       </div>
     </div>
 
-    <div class="row mb-2">
-      <span class="col-2 fw-bold">Loại khách hàng:</span>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Giới tính</label>
+      <div class="col-sm-10">
+        <input type="radio" name="gender" [value]="true" formControlName="gender" id="male">
+        <label for="male">Nam</label>
+        <input type="radio" name="gender" [value]="false" formControlName="gender" id="female">
+        <label for="female">Nữ</label>
+      </div>
+    </div>
 
-      <div class="col-10" >
-        <select class="form-select" >
-          <option selected>Silver</option>
-          <option>Gold</option>
-          <option>Platinium</option>
+<!--    <label class="col-sm-2 col-form-label">Giới Tính</label>-->
+<!--    <div class="col-sm-10">-->
+<!--      <input type="radio" formControlName="gender" name="gender" [value]="true">-->
+<!--      <label>Nam</label>-->
+<!--      <input type="radio" formControlName="gender" name="gender" [value]="false">-->
+<!--      <label>Nữ</label>-->
+<!--    </div>-->
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">CMND/CCCD:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="identity">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.identity">
+          <div *ngIf="identity.hasError(validation.type) && (identity.touched || f.submitted)"
+               class="text-danger">{{validation.message}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Số điện thoại:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="phone_number">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.phone_number">
+          <div *ngIf="phone_number.hasError(validation.type) && (phone_number.touched || f.submitted)"
+               class="text-danger">{{validation.message}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.email">
+          <div *ngIf="email.hasError(validation.type) && (email.touched || f.submitted)"
+               class="text-danger">{{validation.message}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Address:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="address">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+<!--      <div class="col-sm-10">-->
+<!--        <div *ngFor="let validation of validationMessages.email">-->
+<!--          <div *ngIf="email.hasError(validation.type) && (email.touched || f.submitted)"-->
+<!--               class="text-danger">{{validation.message}}</div>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+
+<!--    <div>-->
+<!--      <label>Address:</label>-->
+<!--      <input type="text" formControlName="address">-->
+<!--    </div>-->
+<!--    <div *ngIf="this.form.get('address').hasError('required') && (this.form.get('address').touched || f.submitted)">-->
+<!--      Địa chỉ ko được để trống-->
+<!--    </div>-->
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Loại Khách Hàng:</label>
+      <div class="col-sm-10">
+        <select formControlName="customer_type" [compareWith]="compare">
+          <option [selected]="true" value="null" disabled>Chọn Loại Khách Hàng</option>
+          <option *ngFor="let customerType of customerTypes" [ngValue]="customerType">{{customerType.name}}</option>
         </select>
       </div>
     </div>
+
 
     <div class="d-flex align-items-end justify-content-end">
       <button type="submit" class="btn btn-success m-5">Save</button>
