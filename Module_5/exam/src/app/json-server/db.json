@@ -1,0 +1,77 @@
+{
+  "group": [
+    {
+      "id": 1,
+      "name": "Nhóm 1"
+    },
+    {
+      "id": 2,
+      "name": "Nhóm 2"
+    },
+    {
+      "id": 3,
+      "name": "Nhóm 3"
+    }
+  ],
+  "teacher": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn A"
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Văn B"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Văn C"
+    }
+  ],
+  "student": [
+    {
+      "id": 2,
+      "name": "Nguyễn Cườngggggggggggggggggg",
+      "group": {
+        "id": 2,
+        "name": "Nhóm 2"
+      },
+      "projectName": "Đề Tài 2",
+      "teacher": {
+        "id": 1,
+        "name": "Nguyễn Văn A"
+      },
+      "email": "cuonggg@def.com",
+      "phone": "096214635969"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Duyyyyyyyyyyyyyyyyyyy",
+      "group": {
+        "id": 1,
+        "name": "Nhóm 1"
+      },
+      "projectName": "Đề Tài 3",
+      "teacher": {
+        "id": 1,
+        "name": "Nguyễn Văn A"
+      },
+      "email": "sy@def.com",
+      "phone": "0912345678"
+    },
+    {
+      "id": "123",
+      "name": "Duy",
+      "group": {
+        "id": 1,
+        "name": "Nhóm 1"
+      },
+      "projectName": "Duy Duy Duy",
+      "teacher": {
+        "id": 2,
+        "name": "Nguyễn Văn B"
+      },
+      "email": "dinhtrantrongduy@def.com",
+      "phone": "0794546528"
+    }
+  ]
+}

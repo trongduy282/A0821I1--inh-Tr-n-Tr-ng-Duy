@@ -1,0 +1,194 @@
+<div class="container">
+  <h1 class="text-center text-danger" routerLink="/students" *ngIf="id === 0">Student Create</h1>
+  <h1 class="text-center text-danger" routerLink="/students" *ngIf="id > 0">Student Edit</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" #f="ngForm">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Ma SV</label>
+      <div class="col-sm-10">
+        <!--        <input type="text" class="form-control" formControlName="id">-->
+        <input type="text" class="form-control" formControlName="id" *ngIf="id === 0">
+        <input type="text" class="form-control" formControlName="id" *ngIf="id > 0" readonly disabled>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.id">
+          <div *ngIf="this.form.get('id').hasError(validation.type) && (this.form.get('id').touched || f.submitted)"
+               class="text-danger">{{validation.message}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Tên</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.name">
+          <div *ngIf="name.hasError(validation.type) && (name.touched || f.submitted)"
+               class="text-danger">{{validation.message}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Tên Đề Tài</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="projectName">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.projectName">
+          <div
+            *ngIf="this.form.get('projectName').hasError(validation.type) && (this.form.get('projectName').touched || f.submitted)"
+            class="text-danger">{{validation.message}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Giáo viên hướng dẫn</label>
+      <div class="col-sm-10">
+        <select formControlName="teacher" [compareWith]="compare">
+          <option [selected]="true" value="null" disabled>Chọn giáo viên</option>
+          <option *ngFor="let teacher of teachers" [ngValue]="teacher">{{teacher.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.teacher">
+          <div
+            *ngIf="this.form.get('teacher').hasError(validation.type) && (this.form.get('teacher').touched || f.submitted)"
+            class="text-danger">{{validation.message}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Nhóm</label>
+      <div class="col-sm-10">
+        <!--        group 1-->
+        <select formControlName="group" [compareWith]="compare">
+          <option [selected]="true" value="null" disabled>Chọn nhóm</option>
+          <option *ngFor="let group of groups" [ngValue]="group">{{group.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.group">
+          <div
+            *ngIf="this.form.get('group').hasError(validation.type) && (this.form.get('group').touched || f.submitted)"
+            class="text-danger">{{validation.message}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    <div class="form-group row">-->
+    <!--      <label class="col-sm-2 col-form-label">Giới tính</label>-->
+    <!--      <div class="col-sm-10">-->
+    <!--        <input type="radio" name="gender" [value]="true" formControlName="gender" id="male">-->
+    <!--        <label for="male">Nam</label>-->
+    <!--        <input type="radio" name="gender" [value]="false" formControlName="gender" id="female">-->
+    <!--        <label for="female">Nữ</label>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+
+    <!--    <div class="form-group row">-->
+    <!--      <label class="col-sm-2 col-form-label">Ngày sinh</label>-->
+    <!--      <div class="col-sm-10">-->
+    <!--        <input type="date" class="form-control" formControlName="birthday">-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    <div class="form-group row">-->
+    <!--      <label class="col-sm-2 col-form-label"></label>-->
+    <!--      <div class="col-sm-10">-->
+    <!--          <div *ngIf="birthday.hasError('birthdayError') && (birthday.touched || f.submitted)"-->
+    <!--               class="text-danger">Ngay sinh phải trước ngày hiện tại</div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+    <!--    <div class="form-group row">-->
+    <!--      <label class="col-sm-2 col-form-label">CMND</label>-->
+    <!--      <div class="col-sm-10">-->
+    <!--        <input type="text" class="form-control" formControlName="identityCard">-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+    <!--    <div class="form-group row">-->
+    <!--      <label class="col-sm-2 col-form-label">Địa chỉ</label>-->
+    <!--      <div class="col-sm-10">-->
+    <!--        <input type="text" class="form-control" formControlName="address">-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.email">
+          <div
+            *ngIf="this.form.get('email').hasError(validation.type) && (this.form.get('email').touched || f.submitted)"
+            class="text-danger">{{validation.message}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">SĐT</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="phone">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label"></label>
+      <div class="col-sm-10">
+        <div *ngFor="let validation of validationMessages.phone">
+          <div
+            *ngIf="this.form.get('phone').hasError(validation.type) && (this.form.get('phone').touched || f.submitted)"
+            class="text-danger">{{validation.message}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    <div class="form-group row">-->
+    <!--      <label class="col-sm-2 col-form-label">Nhóm</label>-->
+    <!--      <div class="col-sm-10">-->
+    <!--&lt;!&ndash;        group 1&ndash;&gt;-->
+    <!--        <select formControlName="group" [compareWith]="compare">-->
+    <!--          <option [selected]="true" value="null" disabled>Chọn nhóm</option>-->
+    <!--          <option *ngFor="let group of groups" [ngValue]="group">{{group.name}}</option>-->
+    <!--        </select>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+
+    <div>
+      <button type="submit">Submit</button>
+      <button type="button" routerLink="/students">Cancel</button>
+    </div>
+  </form>
+</div>
